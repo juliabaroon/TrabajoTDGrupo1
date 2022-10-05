@@ -1,0 +1,13 @@
+---
+title: "TRABAJO TD"
+author: "Grupo 1"
+date: "2022-10-05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Aquí cada integrante del grupo propondrá un enunciado de un problema y su
+resolución empleando todos los métodos de incertidumbre.
