@@ -11,3 +11,64 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Aquí cada integrante del grupo propondrá un enunciado de un problema y su
 resolución empleando todos los métodos de incertidumbre.
+
+
+```{r}
+source("funcionesincertidumbre.R")
+```
+
+# Ejercicio 1 (Julia Barón)
+
+María quiere planear un viaje de fin de curso a la Riviera Maya y ha consultado varias agencias para organizar el viaje. 
+
+La primera agencia le ofrece un viaje que incluye vuelos y hotel todo incluido por 1200 euros. Además tiene dos promociones: si consiguen un grupo de más de 20 personas se le aplica un descuento del 5% a cada uno y si el grupo es de más de 50 personas, se le aplica un descuento del 10% por persona.
+
+La segunda agencia le propone un viaje de 1400 que incluye vuelos, hotel y dos excursiones (valoradas en 100 euros cada una). Esta agencia también tiene una tarifa de grupo que consiste en regalar una de las excursiones a cada persona si el grupo es de más de 20 personas.
+
+Por último, María también ha intentado organizar el viaje por su cuenta y ha calculado que costaría unos 1100 euros por persona independientemente de la cantidad de personas que haya en el grupo.
+
+Decidir cuál es la mejor alternativa según todos los criterios si lo que quiere María es gastarse el menos dinero posible.
+
+**Solución**
+
+* Un decisor
+
+* Modelo de costos (desfavorable)
+
+* Alternativas:
+  - d1= “Viajar con la Agencia 1”
+  - d2= “Viajar con la Agencia 2”
+  - d3= ”Viajar sin agencia”
+  
+* Estados de la naturaleza:
+  - e1= “Viajan menos de 20 personas”
+  - e2= “Viajan entre 30 y 50 personas”
+  - e3= “Viajan más de 50 personas”
+  
+* Matriz de decisión (costos)
+
+```{r}
+(md11=1200)
+(md12=1200*0.95)
+(md13=1200*0.9)
+(md21=1400)
+(md22=1400-100)
+(md23=1400-100)
+(md31=1100)
+(md32=1100)
+(md33=1100)
+
+```
+
+```{r}
+tbJB=crea.tablaX(c(md11,md12,md13,
+                   md21,md22,md23,
+                   md31,md32,md33),3,3)
+
+resJB= criterio.Todos(tbJB, alfa=0.5, favorable = F)
+resJB
+
+```
+Según la mayoría de  criterios, la mejor alternativa para María es la 3, es decir, 
+planear el viaje por su cuenta. El criterio optimista es el único que recomienda la
+alternativa 1, esto es, viajar con la agencia 1.
