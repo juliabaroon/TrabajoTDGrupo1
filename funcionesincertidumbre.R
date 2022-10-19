@@ -537,6 +537,8 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                cri04$AlternativaOptima[1],cri05$AlternativaOptima[1],
                cri06$AlternativaOptima[1]);
 
+    conteo=table(decopt);#guardamos el conteo de óptimos
+
     resultado = rbind(resultado,decopt);
 
     colnames(resultado)[numestados+1] = cri01$criterio;
@@ -552,18 +554,27 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
         rownames(resultado)[numalterna+1] = 'iAlt.Opt (Desfav.)';
     }
 
-    ## nuevo
+
     resultado = as.data.frame(resultado)
+    resultado[,"Veces Optimo"]=0 #Añadimos una columna (inicialmente toda de ceros) que introduzca cuantas veces es esa alternativa óptima
+
+    for(i in 1:nrow(conteo)){
+        resultado[as.numeric(rownames(as.matrix(conteo))[i]),"Veces Optimo"]=as.matrix(conteo)[i,1];
+    }#ponemos los valores
+
     resultado = format(resultado,digits=4)
+
     decopt = c(rep('--',numestados),
                paste0(names(cri01$AlternativaOptima),collapse = ","),
                paste0(names(cri02$AlternativaOptima),collapse = ","),
                paste0(names(cri03$AlternativaOptima),collapse = ","),
                paste0(names(cri04$AlternativaOptima),collapse = ","),
                paste0(names(cri05$AlternativaOptima),collapse = ","),
-               paste0(names(cri06$AlternativaOptima),collapse = ","));
+               paste0(names(cri06$AlternativaOptima),collapse = ","),
+               paste0("-",collapse = ",")); #Añadimos un nuevo nombre para el pie de la última columna (podría ir la suma de todos los criterios)
+
     resultado[nrow(resultado),] = decopt
-    ## fin nuevo
+
 
     return(resultado)
 
