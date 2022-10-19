@@ -72,3 +72,5 @@ resJB
 Según la mayoría de  criterios, la mejor alternativa para María es la 3, es decir, 
 planear el viaje por su cuenta. El criterio optimista es el único que recomienda la
 alternativa 1, esto es, viajar con la agencia 1.
+
+(cambiar la solución cuando mejoremos las funciones)
