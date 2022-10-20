@@ -2,16 +2,30 @@
 title: "Pruebas"
 author: "Grupo 1"
 date: "2022-10-20"
-output: html_document
+output:
+  pdf_document: 
+    toc: yes
+  html_document:
+    df_print: paged
+  word_document: default
+editor_options: 
+  markdown: 
+    wrap: 72
+lang: es
+frontside: 12pt 
+urlcolor: blue
 ---
+\newpage
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# criterio.Todos
+
 Vamos a probar con ejemplos de la relación el nuevo criterio.Todos.
 
-**Ejemplo Ejercicio 4**
+## **Ejemplo Ejercicio 4**
 
 ```{r}
 tb04=crea.tablaX(c(2160,360,
@@ -22,7 +36,7 @@ res= criterio.Todos(tb04, alfa=0.5, favorable = F)
 res
 ```
 
-**Ejemplo Ejercicio 1**
+## **Ejemplo Ejercicio 1**
 
 ```{r}
 tb01b= crea.tablaX(c(2,12,-3
@@ -32,5 +46,4 @@ tb01b= crea.tablaX(c(2,12,-3
 criterio.Todos(tb01b, alfa= 0.4, F)
 
 ```
-
 
