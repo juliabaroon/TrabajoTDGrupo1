@@ -571,7 +571,7 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                paste0(names(cri04$AlternativaOptima),collapse = ","),
                paste0(names(cri05$AlternativaOptima),collapse = ","),
                paste0(names(cri06$AlternativaOptima),collapse = ","),
-               paste0("-",collapse = ",")); #Añadimos un nuevo nombre para el pie de la última columna (podría ir la suma de todos los criterios)
+               paste0(rownames(resultado)[which.max.general(conteo)],collapse = ",")); # indica cual es la mejor alternativa según el conteo mas alto
 
     resultado[nrow(resultado),] = decopt
 
