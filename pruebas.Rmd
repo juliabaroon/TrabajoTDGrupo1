@@ -1,0 +1,36 @@
+---
+title: "Pruebas"
+author: "Grupo 1"
+date: "2022-10-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Vamos a probar con ejemplos de la relación el nuevo criterio.Todos.
+
+**Ejemplo Ejercicio 4**
+
+```{r}
+tb04=crea.tablaX(c(2160,360,
+                   720,720,
+                   3480,480),3,2)
+
+res= criterio.Todos(tb04, alfa=0.5, favorable = F)
+res
+```
+
+**Ejemplo Ejercicio 1**
+
+```{r}
+tb01b= crea.tablaX(c(2,12,-3
+                     ,5,5,-1,
+                     0,10,-2), 3, 3)
+
+criterio.Todos(tb01b, alfa= 0.4, F)
+
+```
+
+
