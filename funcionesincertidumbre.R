@@ -575,9 +575,18 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
 
     resultado[nrow(resultado),] = decopt
 
-
-    return(resultado)
+    #usando operadores tubería para hacer un anidamiento de estilo, damos cabecera a la
+    #tabla y se modifica la fuente de la letra y el marco de la misma
+    # además hacemos que al pasar el ratón se sombree la fila de color amarillo
+    # y que la tabla sea responsiva (varíe su tamaño en función del tamaño de ventana)
+    # esta tabla resultante nos aparecerá al ejecutar la función en el "Viewer" de RStudio
+    return(resultado %>%
+               kbl(caption = "Criterios Decisión Bajo Incertidumbre") %>%
+               kable_classic(full_width = F, html_font = "Cambria") %>%
+               kable_paper("hover", full_width = F)%>%
+               kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")))
 
 }
+
 
 
