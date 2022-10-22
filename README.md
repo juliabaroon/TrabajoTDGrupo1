@@ -13,6 +13,7 @@ hecho responsiva y dado la cualidad de que al pasar el ratón sobre cualquiera d
  ## Probar funciones y modificaciones:
  
  Se ha creado un documento *"Rmarkdown"* en el cual resolveremos ejercicios de la relación con la finalidad de probar las modificaciones que realicemos en el código.
+ Se ha comprobado que la función criterio.Todos actualizada funciona correctamente en todos los ejercicios.
  
  ## Comentar funciones:
  
