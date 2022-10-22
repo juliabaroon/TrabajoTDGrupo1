@@ -587,7 +587,10 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
         resultado[rownames(conteo)[i],"Veces Optimo"]=conteo[i];
     }#introducimos los valores en la última columna de la tabla de resultados
 
-    resultado[numalterna+1,"Veces Optimo"]=paste0(rownames(resultado)[which.max.general(conteo)],collapse = ",")#añadimos la alternativa óptima (la que tiene un mayor conteo) al pie de la columna (en caso de empate, estas alternativas se mostrarán unidas separadas por coma)
+    contopt=which.max.general(conteo);
+    mejoralt=contopt;
+
+    resultado[numalterna+1,"Veces Optimo"]=paste0(names(mejoralt),collapse = ",")#añadimos la alternativa óptima (la que tiene un mayor conteo) al pie de la columna (en caso de empate, estas alternativas se mostrarán unidas separadas por coma)
 
 
     #usando operadores tubería para hacer un anidamiento de estilo, damos cabecera a la
