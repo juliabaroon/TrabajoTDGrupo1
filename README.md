@@ -4,7 +4,7 @@
  
  * *criterio.Todos*
  
-Hemos añadido una nueva columna a la función que da para cada alternativa el número de veces que es óptima entre todos los criterios (teniendo en cuenta los empates). 
+Hemos añadido una nueva columna a la función que da para cada alternativa el número de veces que es óptima entre todos los criterios. 
 Además, en el pie de la columna se ha dado la alternativa que finalmente resulta óptima (la que reune un conteo mayor).
 
 En cuanto a la estética de la tabla resultante de esta función se han añadido los siguientes cambios: añadido cabecera, modificado la fuente de la letra, añadido marcos, 
