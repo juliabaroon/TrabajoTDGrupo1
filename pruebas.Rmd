@@ -21,6 +21,12 @@ urlcolor: blue
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+source("funcionesincertidumbre.R")
+library(kableExtra)
+```
+
+
 # criterio.Todos
 
 Vamos a probar con ejemplos de la relación el nuevo criterio.Todos.
@@ -36,16 +42,6 @@ res= criterio.Todos(tb04, alfa=0.5, favorable = F)
 res
 ```
 
-## **Ejemplo Ejercicio 1 b)**
-
-```{r}
-tb01b= crea.tablaX(c(2,12,-3
-                     ,5,5,-1,
-                     0,10,-2), 3, 3)
-
-criterio.Todos(tb01b, alfa= 0.4, F)
-
-```
 
 ## **Ejemplo Ejercicio 1 a)**
 
@@ -61,4 +57,17 @@ criterio.Todos(tabla1a,alfa=0.4,T)
 ```
 
 ![image](https://user-images.githubusercontent.com/113537184/197258895-e09a455f-5544-4fbc-9a0c-77f737c55973.png)
+
+## **Ejemplo Ejercicio 1 b)**
+
+Caso de empate
+
+```{r}
+tb01b= crea.tablaX(c(2,12,-3
+                     ,5,5,-1,
+                     0,10,-2), 3, 3)
+
+criterio.Todos(tb01b, alfa= 0.4, F)
+
+```
 
