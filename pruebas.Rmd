@@ -29,7 +29,7 @@ library(kableExtra)
 
 # criterio.Todos
 
-Vamos a probar con ejemplos de la relación el nuevo criterio.Todos.
+Vamos a probar con ejemplos de la relación el nuevo _"criterio.Todos"_.
 
 ## **Ejemplo Ejercicio 4**
 
@@ -60,7 +60,7 @@ criterio.Todos(tabla1a,alfa=0.4,T)
 
 ## **Ejemplo Ejercicio 1 b)**
 
-Caso de empate
+Prueba corrección ante casos de empate.
 
 ```{r}
 tb01b= crea.tablaX(c(2,12,-3

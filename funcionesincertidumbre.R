@@ -537,8 +537,6 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                cri04$AlternativaOptima[1],cri05$AlternativaOptima[1],
                cri06$AlternativaOptima[1]);
 
-    conteo=table(decopt);#guardamos el conteo de óptimos
-
     resultado = rbind(resultado,decopt);
 
     colnames(resultado)[numestados+1] = cri01$criterio;
@@ -558,10 +556,6 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
     resultado = as.data.frame(resultado)
     resultado[,"Veces Optimo"]=0 #Añadimos una columna (inicialmente toda de ceros) que introduzca cuantas veces es esa alternativa óptima
 
-    for(i in 1:nrow(conteo)){
-        resultado[as.numeric(rownames(as.matrix(conteo))[i]),"Veces Optimo"]=as.matrix(conteo)[i,1];
-    }#ponemos los valores
-
     resultado = format(resultado,digits=4)
 
     decopt = c(rep('--',numestados),
@@ -571,9 +565,30 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                paste0(names(cri04$AlternativaOptima),collapse = ","),
                paste0(names(cri05$AlternativaOptima),collapse = ","),
                paste0(names(cri06$AlternativaOptima),collapse = ","),
-               paste0(rownames(resultado)[which.max.general(conteo)],collapse = ",")); # indica cual es la mejor alternativa según el conteo mas alto
+               paste0("-",collapse = ",")); #inicialmente es un guión
 
     resultado[nrow(resultado),] = decopt
+
+    vectorconteo=vector()#vector inicialmente vacío
+
+    #hacemos bucles anidados que recorran la lista resultante de separar el vector de
+    #alternativas óptimas que estén entre comas (esto ocurre en los casos de empate)
+    for(i in 1:length((strsplit(decopt, split=",")[-c(1:numestados,numestados+6+1)])))
+    {
+        for(j in 1:length((strsplit(decopt, split=",")[-c(1:numestados,numestados+6+1)])[[i]]))
+
+            vectorconteo=cbind(vectorconteo,strsplit(decopt, split=",")[-c(1:numestados,numestados+6+1)][[i]][j])#para cada elemento de dicha lista se concatena con el vector inicialmente vacío
+    }
+
+    conteo=table(vectorconteo);#calculamos las frecuencias absolutas (conteo) asociado a
+    #el vector formado por todos los nombres de alternativas que han resultado óptimas
+
+    for(i in 1:nrow(conteo)){
+        resultado[rownames(conteo)[i],"Veces Optimo"]=conteo[i];
+    }#introducimos los valores en la última columna de la tabla de resultados
+
+    resultado[numalterna+1,"Veces Optimo"]=paste0(rownames(resultado)[which.max.general(conteo)],collapse = ",")#añadimos la alternativa óptima (la que tiene un mayor conteo) al pie de la columna (en caso de empate, estas alternativas se mostrarán unidas separadas por coma)
+
 
     #usando operadores tubería para hacer un anidamiento de estilo, damos cabecera a la
     #tabla y se modifica la fuente de la letra y el marco de la misma
@@ -587,6 +602,4 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")))
 
 }
-
-
 
