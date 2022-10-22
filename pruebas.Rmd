@@ -72,7 +72,6 @@ criterio.Todos(tb01b, alfa= 0.4, F)
 ```
 ## **Ejemplo Ejercicio 3**
 
-Error al mostrar el óptimo en el problema 3.
 
 ```{r}
 tabla3=crea.tablaX(c(24,19,10,16,
