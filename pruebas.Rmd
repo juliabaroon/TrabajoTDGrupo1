@@ -84,3 +84,24 @@ rownames(tabla3)=c("Deportivo","Berlina","Monovolumen","Todo-terreno")
 criterio.Todos(tabla3,alfa=0.5,T)
 
 ```
+
+
+# dibuja.criterio.Hurwicz_Intervalos
+
+## **Ejemplo Ejercicio 2**
+
+Prueba fallo problema 2 relación 1.
+
+```{r}
+tabla2=crea.tablaX(c(0,1,0,
+                      1,0,0,
+                      1/2,1/2,0),numalternativas=3,numestados=3)
+
+criterio.Hurwicz(tabla2,alfa=0.4,T)
+
+#dibuja.criterio.Hurwicz_Intervalos(tabla2,T,T) #ERROR
+
+dibuja.criterio.Hurwicz(tabla2,T)
+
+```
+
