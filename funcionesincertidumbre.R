@@ -28,16 +28,15 @@ which.min.general = function(vector) {
 
 }
 
-which.max.general = function(vector) {
-    maximo = max(vector);
-    res = which(vector == maximo);
-    return(res);
-
+which.max.general = function(vector) {#proporcionamos un vector a la función
+    maximo = max(vector);#calculamos el valor máximo del mismo (valor)
+    res = which(vector == maximo);#en que posición del vector se encuentra el valor máximo
+    return(res);#devolvemos la posición obtenida
 }
 
 
 ##which.min.general(c(3,2,8,2,9,2))
-##which.min.general(c(3,2,8,1,9,2))
+##which.max.general(c(3,2,8,1,9,2)) #ejemplo de aplicación
 
 distanciaEuclidea = function(pto1,pto2) {
     return( sqrt( sum( (pto1-pto2)^2 )  ) )
