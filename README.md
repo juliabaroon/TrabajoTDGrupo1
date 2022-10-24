@@ -18,5 +18,5 @@ hecho responsiva y dado la cualidad de que al pasar el ratón sobre cualquiera d
  
  ## Comentar funciones:
  
- Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidumbre.R"* de forma que cada uno de los integrantes debemos coomentar 3 de ellas.
+Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidumbre.R"* de forma que cada uno de los integrantes debemos comentar 3 de ellas. Indicaremos que hace cada comando y, en caso de haberlas, las funciones teóricas que se están aplicando.
  
