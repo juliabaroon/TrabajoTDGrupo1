@@ -26,5 +26,6 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - which.max.general
   - criterio.Wald
   - criterio.Hurwicz
+  - dibuja.criterio.Hurwicz_Intervalos 
   
  
