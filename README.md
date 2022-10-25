@@ -38,6 +38,6 @@ resolución empleando todos los métodos de incertidumbre.
 Cada repositorio en GitHub.com viene equipado con una sección para alojar documentación, llamada wiki. Puedes usar el wiki de tu repositorio para decir cómo has diseñado tu proyecto o sus principios básicos.En nuestro caso se ha creado una Wiki a modo de presentación para todo aquel que acceda al repositorio, para que conozca en que consiste el trabajo y que se espera de el. 
 
 La wiki incluye:
-* Home
-* Funciones incertidumbre
+* Home: breve presentación.
+* Funciones incertidumbre: Enunciado del trabajo.
 * Integrantes del Grupo 1
