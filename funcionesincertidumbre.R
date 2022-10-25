@@ -124,36 +124,39 @@ criterio.Optimista = function(tablaX,favorable=TRUE) {
 
 
 
-## factor de optimismo   (alfab * "lo mejor" Altmax en favor. y Altmin en desf.)
+# factor de optimismo   (alfab * "lo mejor" Altmax en favor. y Altmin en desf.)
 criterio.Hurwicz = function(tablaX,alfa=0.3,favorable=TRUE) {
-    # alfa es un escalar entre 0 y 1 lo obtiene para ese único valor
-    X = tablaX;
-    if (favorable) {
-        Altmin = apply(X,MARGIN=1,min);
-        Altmax= apply(X,MARGIN=1,max);
-        AltH = alfa * Altmax + (1-alfa) * Altmin
-        Hurwicz = max(AltH)
-        Alt_Hurwicz = which.max.general(AltH)
-        metodo = 'favorable';
-    } else {
-        Altmin = apply(X,MARGIN=1,min);
-        Altmax= apply(X,MARGIN=1,max);
-        AltH = (1-alfa) * Altmax + alfa * Altmin
-        Hurwicz = min(AltH)
-        Alt_Hurwicz = which.min.general(AltH)
-        metodo = 'desfavorable';
+    #se le da a la función una tabla tal que las columnas son los estados de la natulareza y las filas las alternativas
+    # alfa es un escalar entre 0 y 1 que pondera el criterio óptimista, luego cuanto más cercano a 1 más optimista se es y viceversa
+    # la solucióna asociada al criterio de Hurwicz se obtiene para ese único valor de alfa
+    #Y si es favorable o no, es decir, si la tabla esta asociada a beneficios (buscaríamos maximizar) o a costos (minimizar)
+    #
+    X = tablaX;#tabla de decisión
+    if (favorable) {#si son beneficios
+        Altmin = apply(X,MARGIN=1,min);#mínimo por filas
+        Altmax= apply(X,MARGIN=1,max);#máximo por filas
+        AltH = alfa * Altmax + (1-alfa) * Altmin #fórmula criterio: alfa*Optimista + (1-alfa)Pesimista
+        Hurwicz = max(AltH)#máximo de los beneficios=óptimo (alternativa que maximiza el beneficio)
+        Alt_Hurwicz = which.max.general(AltH)#en que posició se encuentra el óptimo
+        metodo = 'favorable'; #método usado
+    } else {#si la tabla de decisión es de costos
+        Altmin = apply(X,MARGIN=1,min);#mínimo por filas
+        Altmax= apply(X,MARGIN=1,max);#máximo por filas
+        AltH = (1-alfa) * Altmax + alfa * Altmin #fórmula criterio: alfa*Pesimista + (1-alfa)Optimista
+        Hurwicz = min(AltH) #menor costo=óptimo
+        Alt_Hurwicz = which.min.general(AltH)#en que posición se encuentra el óptimo (alternativa que minimiza el costo)
+        metodo = 'desfavorable';#método usado
     }
-    resultados = list();
-    resultados$criterio = 'Hurwicz';
-    resultados$alfa = alfa;
-    resultados$metodo = metodo;
-    resultados$tablaX = tablaX;
-    resultados$ValorAlternativas = AltH;
-    resultados$ValorOptimo = Hurwicz;
-    resultados$AlternativaOptima = Alt_Hurwicz;
+    resultados = list();#lista vacía en la que almacenar los resultados
+    resultados$criterio = 'Hurwicz'; #nombre del criterio
+    resultados$alfa = alfa;#alfa usado
+    resultados$metodo = metodo; #método favorable o desfavorable
+    resultados$tablaX = tablaX;#tabla de decisión
+    resultados$ValorAlternativas = AltH;#valores asociados a las alternativas
+    resultados$ValorOptimo = Hurwicz;#valor asociado a la alternativa óptima
+    resultados$AlternativaOptima = Alt_Hurwicz;#nombre de la alternativa óptima
 
-    return(resultados);
-
+    return(resultados);#devolvemos la lista de resultados
 
 
 }
