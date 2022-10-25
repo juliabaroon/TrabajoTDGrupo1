@@ -35,9 +35,16 @@ resolución empleando todos los métodos de incertidumbre.
 
 ## Wiki:
 
-Cada repositorio en GitHub.com viene equipado con una sección para alojar documentación, llamada wiki. Puedes usar el wiki de tu repositorio para decir cómo has diseñado tu proyecto o sus principios básicos.En nuestro caso se ha creado una Wiki a modo de presentación para todo aquel que acceda al repositorio, para que conozca en que consiste el trabajo y que se espera de el. 
+Cada repositorio en GitHub.com viene equipado con una sección para alojar documentación, llamada _Wiki_. Puedes usar la wiki de tu repositorio para decir cómo has 
+diseñado tu proyecto o sus principios básicos. En nuestro caso se ha creado una Wiki a modo de presentación para que todo aquel que acceda al repositorio conozca
+en que consiste el trabajo y que se espera de el. 
 
 La wiki incluye:
 * Home: breve presentación.
 * Funciones incertidumbre: Enunciado del trabajo.
 * Integrantes del Grupo 1
+
+### Diferencia _README_ y _Wiki_:
+
+Un archivo README dice rápidamente lo que tu proyecto puede hacer (en nuestro caso que cambios o añadidos hemos hecho), mientras que puedes utilizar la _Wiki_ para 
+proporcionar documentación adicional (como información más específica asociada a nuestro grupo).
