@@ -6,7 +6,7 @@ crea.tablaX = function(vector_matporfilas,numalternativas=3,numestados=4) { #le 
     X = matrix(vector_matporfilas,nrow=numalternativas,ncol=numestados,byrow=TRUE) # creamos una matriz a partir del vector dado de dimensión (numalternativasxnumestados)
     colnames(X) = paste('e',1:numestados,sep=''); # le asignamos a las columnas los nombres de los estados
     rownames(X) = paste('d',1:numalternativas,sep=''); # le asignamos a las filas los nombres de las alternativas
-    return(X); # nos devuelve la matriz
+    return(X); # nos devuelve la matriz en forma de tabla
 
 }
 
@@ -61,30 +61,32 @@ criterio.tablaX.ejemplos = function(cual=1) {
 
 ## Criterio de Wald o Pesimista
 criterio.Wald = function(tablaX,favorable=TRUE) {
-
+# le proporcionamos a la función una tabla de decisión (ya creada con la función crea.tablaX)
+# e indicamos si la matriz es de beneficios y maximizamos (favorable=T)
+# o si es de costos y minimizamos (favorable=F)
     X = tablaX;
-    if (favorable) {
-        AltW = apply(X,MARGIN=1,min);
+    if (favorable) { # caso favorable (beneficios)
+        AltW = apply(X,MARGIN=1,min); # aplicamos el mínimo por filas
         ##AltW
-        Wald = max(AltW);
-        Alt_Wald = which.max.general(AltW);
+        Wald = max(AltW); # seleccionamos el máximo de los mínimos
+        Alt_Wald = which.max.general(AltW); # nos indica la posición del máximo
         metodo = 'favorable';
-    } else {
-        AltW = apply(X,MARGIN=1,max);
+    } else { # caso desfavorable (costos)
+        AltW = apply(X,MARGIN=1,max); # aplicamos el máximo por filas
         ##AltW
-        Wald = min(AltW);
-        Alt_Wald = which.min.general(AltW);
+        Wald = min(AltW); # seleccionamos el mínimo de los máximos
+        Alt_Wald = which.min.general(AltW); # nos indica la posición del mínimo
         metodo = 'desfavorable';
     }
     resultados = list();
-    resultados$criterio = 'Wald';
-    resultados$metodo = metodo;
-    resultados$tablaX = tablaX;
-    resultados$ValorAlternativas = AltW;
-    resultados$ValorOptimo = Wald;
-    resultados$AlternativaOptima = Alt_Wald;
+    resultados$criterio = 'Wald'; # nombre del criterio
+    resultados$metodo = metodo; # favorable o desfavorable
+    resultados$tablaX = tablaX; # tabla de decisión
+    resultados$ValorAlternativas = AltW; # valor de las alternativas
+    resultados$ValorOptimo = Wald; # valor de la alternativa óptima
+    resultados$AlternativaOptima = Alt_Wald; # alternativa óptima
 
-    return(resultados);
+    return(resultados); # nos devuelve la lista con los resultados
 
 
 }
