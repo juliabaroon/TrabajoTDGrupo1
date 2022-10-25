@@ -66,13 +66,13 @@ criterio.Wald = function(tablaX,favorable=TRUE) {
 # o si es de costos y minimizamos (favorable=F)
     X = tablaX;
     if (favorable) { # caso favorable (beneficios)
-        AltW = apply(X,MARGIN=1,min); # aplicamos el mínimo por filas
+        AltW = apply(X,MARGIN=1,min); #  mínimo por filas
         ##AltW
         Wald = max(AltW); # seleccionamos el máximo de los mínimos
         Alt_Wald = which.max.general(AltW); # nos indica la posición del máximo
         metodo = 'favorable';
     } else { # caso desfavorable (costos)
-        AltW = apply(X,MARGIN=1,max); # aplicamos el máximo por filas
+        AltW = apply(X,MARGIN=1,max); #  máximo por filas
         ##AltW
         Wald = min(AltW); # seleccionamos el mínimo de los máximos
         Alt_Wald = which.min.general(AltW); # nos indica la posición del mínimo
@@ -288,6 +288,11 @@ dibuja.criterio.Hurwicz = function(tablaX,favorable=TRUE) {
 # Autores: Ana Solis, Luca Ricardi y Paula Gutiérrez (Noviembre-2021)
 
 dibuja.criterio.Hurwicz_Intervalos = function(tablaX,favorable=TRUE,mostrarGrafico=TRUE) {
+    # le proporcionamos a la función una tabla de decisión (ya creada con la función crea.tablaX)
+    # e indicamos si la matriz es de beneficios y maximizamos (favorable=T)
+    # o si es de costos y minimizamos (favorable=F)
+    # además indicamos si queremos que nos aparezca el gráfico cuando usemos la función
+
     X = tablaX # renombramos la tabla
     Altmin = apply(X,MARGIN=1,min)      # vector de minimos (por filas)
     Altmax = apply(X,MARGIN=1,max)      # vector de maximos (por filas)
@@ -345,13 +350,13 @@ dibuja.criterio.Hurwicz_Intervalos = function(tablaX,favorable=TRUE,mostrarGrafi
 
     if (mostrarGrafico) {
         x0=0;x1=1;
-        y0 = min(Altmin);
-        y1 = max(Altmax);
+        y0 = min(Altmin); # mínimo del vector de los mínimos
+        y1 = max(Altmax); # máximo del vector de los máximos
         rg = y1-y0;
         y0=y0-0.1*rg;y1=y1+0.1*rg;
         plot(c(x0,x1), c(y0,y1), type = "n", xlab = "alpha", ylab = "Criterio Hurwicz");
         nn = length(Altmin);
-        colores = rainbow(nn) #aquí es donde estaba el fallo, por lo que salían todas las lineas azules.
+        colores = rainbow(nn)
         abline(v=0);
         abline(v=1);
         if (favorable) {
