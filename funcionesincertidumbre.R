@@ -1,12 +1,12 @@
 # fichero: teoriadecision_funciones_incertidumbre_nuevo.R ----
 ## Funciones útiles ----
 
-crea.tablaX = function(vector_matporfilas,numalternativas=3,numestados=4) {
+crea.tablaX = function(vector_matporfilas,numalternativas=3,numestados=4) { #le proporcionamos a la función un vector, el número de alternativas y el número de estados
 
-    X = matrix(vector_matporfilas,nrow=numalternativas,ncol=numestados,byrow=TRUE)
-    colnames(X) = paste('e',1:numestados,sep='');
-    rownames(X) = paste('d',1:numalternativas,sep='');
-    return(X);
+    X = matrix(vector_matporfilas,nrow=numalternativas,ncol=numestados,byrow=TRUE) # creamos una matriz a partir del vector dado de dimensión (numalternativasxnumestados)
+    colnames(X) = paste('e',1:numestados,sep=''); # le asignamos a las columnas los nombres de los estados
+    rownames(X) = paste('d',1:numalternativas,sep=''); # le asignamos a las filas los nombres de las alternativas
+    return(X); # nos devuelve la matriz
 
 }
 
