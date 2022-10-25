@@ -32,3 +32,7 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
  
 Se ha creado un documento *"Rmarkdown"* en el cual cada componente del grupo propondrá un enunciado de un problema y su
 resolución empleando todos los métodos de incertidumbre.
+
+## Wiki:
+
+Cada repositorio en GitHub.com viene equipado con una sección para alojar documentación, llamada wiki. Puedes usar el wiki de tu repositorio para decir cómo has diseñado tu proyecto o sus principios básicos.
