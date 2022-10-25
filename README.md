@@ -28,7 +28,7 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - criterio.Hurwicz
   - dibuja.criterio.Hurwicz_Intervalos 
   
- ## Problemas propuestos
+ ## Problemas propuestos:
  
 Se ha creado un documento *"Rmarkdown"* en el cual cada componente del grupo propondrá un enunciado de un problema y su
 resolución empleando todos los métodos de incertidumbre.
