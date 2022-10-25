@@ -15,6 +15,7 @@ resolución empleando todos los métodos de incertidumbre.
 
 ```{r}
 source("funcionesincertidumbre.R")
+library(kableExtra)
 ```
 
 # Ejercicio 1 (Julia Barón)
@@ -60,10 +61,48 @@ Decidir cuál es la mejor alternativa según todos los criterios si lo que quier
 
 ```
 
+
 ```{r}
+# Creamos la tabla de decisión
+
 tbJB=crea.tablaX(c(md11,md12,md13,
                    md21,md22,md23,
                    md31,md32,md33),3,3)
+
+#Criterio Wald
+
+waldJB=criterio.Wald(tbJB,F)
+waldJB
+
+# Criterio Optimista
+
+optimistaJB=criterio.Optimista(tbJB,F)
+optimistaJB
+
+# Criterio Hurwicz
+
+hurwiczJB=criterio.Hurwicz(tbJB, 0.5, F)
+hurwiczJB
+
+# Criterio Savage
+
+savageJB=criterio.Savage(tbJB,F)
+savageJB
+
+# Criterio Laplace
+
+laplaceJB=criterio.Laplace(tbJB,F)
+laplaceJB
+
+# Criterio Punto Ideal
+
+pidealJB= criterio.PuntoIdeal(tbJB,F)
+pidealJB
+```
+
+
+```{r}
+# Todos los criterios
 
 resJB= criterio.Todos(tbJB, alfa=0.5, favorable = F)
 resJB
