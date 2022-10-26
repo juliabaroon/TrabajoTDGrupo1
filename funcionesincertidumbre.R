@@ -60,6 +60,7 @@ criterio.tablaX.ejemplos = function(cual=1) {
 ## Funciones Métodos de Decisión bajo Incertidumbre ----
 
 ## Criterio de Wald o Pesimista
+
 criterio.Wald = function(tablaX,favorable=TRUE) {
 # le proporcionamos a la función una tabla de decisión (ya creada con la función crea.tablaX)
 # e indicamos si la matriz es de beneficios y maximizamos (favorable=T)
@@ -92,8 +93,7 @@ criterio.Wald = function(tablaX,favorable=TRUE) {
 }
 
 
-
-
+## Optimista
 
 criterio.Optimista = function(tablaX,favorable=TRUE) {
 
@@ -124,6 +124,8 @@ criterio.Optimista = function(tablaX,favorable=TRUE) {
 
 }
 
+
+## Hurwicz
 
 
 # factor de optimismo   (alfab * "lo mejor" Altmax en favor. y Altmin en desf.)
@@ -457,6 +459,7 @@ criterio.Savage = function(tablaX,favorable=TRUE) {
 }
 
 
+## Laplace
 
 criterio.Laplace = function(tablaX,favorable=TRUE) {#damos la tabla de decisión y si manejamos beneficios (favorable) o costos (desfavorable)
 
@@ -484,7 +487,7 @@ criterio.Laplace = function(tablaX,favorable=TRUE) {#damos la tabla de decisión
 
 }
 
-
+## Punto Ideal
 
 criterio.PuntoIdeal = function(tablaX,favorable=TRUE) {
 
@@ -524,6 +527,8 @@ criterio.PuntoIdeal = function(tablaX,favorable=TRUE) {
     return(resultados);
 
 }
+
+## Todos los criterios
 
 criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
 
