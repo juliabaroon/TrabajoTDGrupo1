@@ -27,6 +27,7 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - criterio.Wald
   - criterio.Hurwicz
   - dibuja.criterio.Hurwicz_Intervalos 
+  - criterio.Laplace
   
  ## Problemas propuestos:
  
