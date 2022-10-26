@@ -44,6 +44,7 @@ La wiki incluye:
 * Home: breve presentación.
 * Funciones incertidumbre: Enunciado del trabajo.
 * Integrantes del Grupo 1
+* Reparto funciones a comentar: enlazo el issue en el que repartimos las tareas para que sea de fácil acceso para todo el que lo quiera consultar.
 
 ### Diferencia _README_ y _Wiki_:
 
