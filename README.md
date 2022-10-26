@@ -4,8 +4,10 @@
  
  * *criterio.Todos*
  
-Hemos añadido una nueva columna a la función que da para cada alternativa el número de veces que es óptima entre todos los criterios. Este cambio tiene en cuenta los empates de manera que pueda haber un mismo conteo en más de una alternativa.
-Además, en el pie de la columna se ha dado la alternativa que finalmente resulta óptima (la que reune un conteo mayor) en caso de que sea solo una, o varias separadas por comas en caso contrario.
+Hemos añadido una nueva columna a la función que da para cada alternativa el número de veces que es óptima entre todos los criterios. Este cambio tiene en cuenta los
+empates de manera que pueda haber un mismo conteo en más de una alternativa.
+Además, en el pie de la columna se ha dado la alternativa que finalmente resulta óptima (la que reune un conteo mayor) en caso de que sea solo una, o varias separadas
+por comas en caso contrario.
 
 En cuanto a la estética de la tabla resultante de esta función se han añadido los siguientes cambios: añadido cabecera, modificado la fuente de la letra, añadido marcos, 
 hecho responsiva y dado la cualidad de que al pasar el ratón sobre cualquiera de sus filas esta se sombree en amarillo.
@@ -22,12 +24,12 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
 
 * Lista de funciones comentadas:
 
-  - crea.tablaX
-  - which.max.general
-  - criterio.Wald
-  - criterio.Hurwicz
-  - dibuja.criterio.Hurwicz_Intervalos 
-  - criterio.Laplace
+  - _crea.tablaX_
+  - _which.max.general_
+  - _criterio.Wald_
+  - _criterio.Hurwicz_
+  - _dibuja.criterio.Hurwicz_Intervalos_
+  - _criterio.Laplace_
   
  ## Problemas propuestos:
  
@@ -40,13 +42,13 @@ Cada repositorio en GitHub.com viene equipado con una sección para alojar docum
 diseñado tu proyecto o sus principios básicos. En nuestro caso se ha creado una Wiki a modo de presentación para que todo aquel que acceda al repositorio conozca
 en que consiste el trabajo y que se espera de el. 
 
-La wiki incluye:
-* Home: breve presentación.
-* Funciones incertidumbre: Enunciado del trabajo.
-* Integrantes del Grupo 1
-* Reparto funciones a comentar: enlazo el issue en el que repartimos las tareas para que sea de fácil acceso para todo el que lo quiera consultar.
+La Wiki incluye:
+* _Home_: breve presentación.
+* _Funciones incertidumbre_: Enunciado del trabajo.
+* _Integrantes del Grupo 1_
+* _Reparto funciones a comentar_: enlazo el issue en el que repartimos las tareas para que sea de fácil acceso para todo el que lo quiera consultar.
 
 ### Diferencia _README_ y _Wiki_:
 
-Un archivo README dice rápidamente lo que tu proyecto puede hacer (en nuestro caso que cambios o añadidos hemos hecho), mientras que puedes utilizar la _Wiki_ para 
+Un archivo _README_ dice rápidamente lo que tu proyecto puede hacer (en nuestro caso que cambios o añadidos hemos hecho), mientras que puedes utilizar la _Wiki_ para 
 proporcionar documentación adicional (como información más específica asociada a nuestro grupo).
