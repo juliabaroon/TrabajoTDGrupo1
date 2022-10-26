@@ -43,10 +43,10 @@ diseñado tu proyecto o sus principios básicos. En nuestro caso se ha creado un
 en que consiste el trabajo y que se espera de el. 
 
 La Wiki incluye:
-* _Home_: breve presentación.
-* _Funciones incertidumbre_: Enunciado del trabajo.
-* _Integrantes del Grupo 1_
-* _Reparto funciones a comentar_: enlazo el issue en el que repartimos las tareas para que sea de fácil acceso para todo el que lo quiera consultar.
+* **Home**: breve presentación.
+* **Funciones incertidumbre**: Enunciado del trabajo.
+* **Integrantes del Grupo 1**
+* **Reparto funciones a comentar**: enlazo el issue en el que repartimos las tareas para que sea de fácil acceso para todo el que lo quiera consultar.
 
 ### Diferencia _README_ y _Wiki_:
 
