@@ -458,29 +458,29 @@ criterio.Savage = function(tablaX,favorable=TRUE) {
 
 
 
-criterio.Laplace = function(tablaX,favorable=TRUE) {
+criterio.Laplace = function(tablaX,favorable=TRUE) {#damos la tabla de decisión y si manejamos beneficios (favorable) o costos (desfavorable)
 
-    X = tablaX;
-    if (favorable) {
-        AltL = apply(X,MARGIN=1,mean);
-        Laplace = max(AltL) # favorable
-        Alt_Laplace = which.max.general(AltL)
-        metodo = 'favorable';
+    X = tablaX; #tabla de decisión
+    if (favorable) {#si son beneficios
+        AltL = apply(X,MARGIN=1,mean);#promedio por filas
+        Laplace = max(AltL) # favorable (mayor promedio= valor óptimo)
+        Alt_Laplace = which.max.general(AltL)#que alternativa tiene asociada el valor óptimo
+        metodo = 'favorable'; #beneficios
     } else {
-        AltL = apply(X,MARGIN=1,mean);
-        Laplace = min(AltL) # desfavorable
-        Alt_Laplace = which.min.general(AltL)
-        metodo = 'desfavorable';
+        AltL = apply(X,MARGIN=1,mean) #promedio por filas
+        Laplace = min(AltL) # desfavorable (menor promedio = valor óptimo)
+        Alt_Laplace = which.min.general(AltL) #que alternativa tiene asociada el valor óptimo
+        metodo = 'desfavorable'; #costos
     }
-    resultados = list();
-    resultados$criterio = 'Laplace';
-    resultados$metodo = metodo;
-    resultados$tablaX = tablaX;
-    resultados$ValorAlternativas = AltL;
-    resultados$ValorOptimo = Laplace;
-    resultados$AlternativaOptima = Alt_Laplace;
+    resultados = list(); #creamos lista vacía en la que almacenar los resultados
+    resultados$criterio = 'Laplace'; #nombre del criterio
+    resultados$metodo = metodo; #beneficios o costos
+    resultados$tablaX = tablaX; #tabla de decisión
+    resultados$ValorAlternativas = AltL; #promedios por fila
+    resultados$ValorOptimo = Laplace; #valor asociado a la alternativa óptima
+    resultados$AlternativaOptima = Alt_Laplace; #nombre de la alternativa óptima
 
-    return(resultados);
+    return(resultados); #devolvemos los resultados
 
 }
 
