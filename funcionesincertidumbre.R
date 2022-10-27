@@ -616,7 +616,9 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                kbl(caption = "Criterios Decisión Bajo Incertidumbre") %>%
                kable_classic(full_width = F, html_font = "Cambria") %>%
                kable_paper("hover", full_width = F)%>%
-               kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")))
+               kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+               row_spec(0, bold = TRUE)
+           )
 
 }
 
