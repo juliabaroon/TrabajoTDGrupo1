@@ -105,3 +105,32 @@ dibuja.criterio.Hurwicz(tabla2,T)
 
 ```
 
+## Nueva estética función _"Criterio.Todos"_
+
+## **Ejemplo Ejercicio 1 a)**
+
+Prueba del cambio estético aplicado a la tabla resultante de la función _"criterio.Todos"_
+
+```{r}
+tabla1a=crea.tablaX(c(5,4,6,
+                     2,3,1,
+                     -1,8,7,
+                     5,2,0),numalternativas=4,numestados=3)
+criterio.Todos(tabla1a,alfa=0.4,T)  
+
+```
+![image](https://user-images.githubusercontent.com/113537184/198872262-ef6314c1-c260-4572-8984-736df16e9b4b.png)
+
+## **Ejemplo Ejercicio 1 b)**
+
+Comprobamos que ante casos de empate el cambio estético sigue funcionando y se sombrean todas las alternativas óptimas.
+
+```{r}
+tb01b= crea.tablaX(c(2,12,-3
+                     ,5,5,-1,
+                     0,10,-2), 3, 3)
+
+criterio.Todos(tb01b, alfa= 0.4, F)
+
+```
+![image](https://user-images.githubusercontent.com/113537184/198872239-7143ccb9-3775-4caf-adbc-862c9340efd4.png)
