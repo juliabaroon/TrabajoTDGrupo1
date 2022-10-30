@@ -1,6 +1,6 @@
 # TRABAJO FUNCIONES INCERTIDUMBRE: GRUPO 1.
  
- ## Modificaciones código:
+## Modificaciones código:
  
  * *criterio.Todos*
  
@@ -18,7 +18,7 @@ hecho responsiva y dado la cualidad de que al pasar el ratón sobre cualquiera d
  
  Se ha comprobado que la función criterio.Todos actualizada funciona correctamente en todos los ejercicios.
  
- ## Comentar funciones:
+## Comentar funciones:
  
 Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidumbre.R"* de forma que cada uno de los integrantes debemos comentar 3 de ellas. Indicaremos que hace cada comando y, en caso de haberlas, las funciones teóricas que se están aplicando.
 
@@ -31,10 +31,17 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - _dibuja.criterio.Hurwicz_Intervalos_
   - _criterio.Laplace_
   
- ## Problemas propuestos:
+## Problemas propuestos:
  
 Se ha creado un documento *"Rmarkdown"* en el cual cada componente del grupo propondrá un enunciado de un problema y su
 resolución empleando todos los métodos de incertidumbre.
+
+## Paquete R:
+
+Se ha creado un nuevo proyecto dentro de la subcarpeta _"FuncionesIncertidumbre"_ para crear un nuevo paquete de R el cual contenga todas las funciones creadas en el 
+fichero _funcionesncertidumbre.R_.
+
+Además se ha añadido una vignette asocidada a dicho paquete llamada _"my-vignette"_ en la cual redactaremos todo lo que el paquete es capaz de hacer y ejemplos de aplicación para que cualquier persona que lo consulte pueda ver como funciona fácilmente.
 
 ## Wiki:
 
