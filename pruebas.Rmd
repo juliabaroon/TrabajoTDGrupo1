@@ -119,7 +119,7 @@ tabla1a=crea.tablaX(c(5,4,6,
 criterio.Todos(tabla1a,alfa=0.4,T)  
 
 ```
-![image](https://user-images.githubusercontent.com/113537184/198871652-c1f095f8-3e11-4d03-8cf0-3b7de0148591.png)
+![image](https://user-images.githubusercontent.com/113537184/198872262-ef6314c1-c260-4572-8984-736df16e9b4b.png)
 
 ## **Ejemplo Ejercicio 1 b)**
 
@@ -133,4 +133,4 @@ tb01b= crea.tablaX(c(2,12,-3
 criterio.Todos(tb01b, alfa= 0.4, F)
 
 ```
-![image](https://user-images.githubusercontent.com/113537184/198871708-9ed8df1e-026b-401b-a321-fe998c10d2f3.png)
+![image](https://user-images.githubusercontent.com/113537184/198872239-7143ccb9-3775-4caf-adbc-862c9340efd4.png)
