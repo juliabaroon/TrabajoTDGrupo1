@@ -612,12 +612,16 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
     # además hacemos que al pasar el ratón se sombree la fila de color amarillo
     # y que la tabla sea responsiva (varíe su tamaño en función del tamaño de ventana)
     # esta tabla resultante nos aparecerá al ejecutar la función en el "Viewer" de RStudio
-    return(resultado %>%
-               kbl(caption = "Criterios Decisión Bajo Incertidumbre") %>%
-               kable_classic(full_width = F, html_font = "Cambria") %>%
-               kable_paper("hover", full_width = F)%>%
-               kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
-               row_spec(0, bold = TRUE)
+   return(resultado %>%
+               kbl(caption = "Criterios Decisión Bajo Incertidumbre") %>% #cabecera de la tabla
+               kable_styling(
+                   bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                   full_width = F
+               ) %>%
+               column_spec(numestados+6+2,color = "white", #cambiarán de color las celdas asociadas a la columna "Veces Optimo"
+                   background = ifelse(resultado[,"Veces Optimo"] >=max(conteo), "#3CB371", "#FA8072"))#ponemos en verde aquellas alternativas que tengán el conteo 
+          #superior (es decir, las óptimas), las que no se sombrearán en rojo
+               
            )
 
 }
