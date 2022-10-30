@@ -1,0 +1,23 @@
+---
+title: "Introducción Funciones Incertidumbre"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FuncionesIncertidumbre)
+```
+
+Este paquete esta orientado a la aplicación en la rama de la estadística asociada a la Teoría de la Decisión de criterios que nos permitan obtener que alternativas son las óptimas ante una serie de estados de la naturaleza.
+
+Las funciones de incertidumbre se caracterizan por no tener una probabilidad asociada a cada posible suceso, luego se decide bajo incertidumbre.
