@@ -501,37 +501,39 @@ criterio.Laplace = function(tablaX,favorable=TRUE) {#damos la tabla de decisión
 criterio.PuntoIdeal = function(tablaX,favorable=TRUE) {
 #tomamos en un rpincipio que es favorable
     X = tablaX;
-    if (favorable) {
+    if (favorable) {#si es de beneficios
         MejoresPT = apply(X,MARGIN=2,max); # favorable, calculo de max por filas
         AltPT = rep(0,dim(X)[1])#creamos un vectro con tantos 0 como número de filas tenga X
         for (i in 1:dim(X)[1]) {#le vamos calculando  a cada valor de ese vector la distancia euclidea
             AltPT[i] = distanciaEuclidea(MejoresPT,X[i,])
-        }
+        }#Le calculamos la distancia euclidea a los máximos por filas
         ##AltPT
-        names(AltPT) = rownames(tablaX)
-        PuntoIdeal = min(AltPT);
-        Alt_PuntoIdeal = which.min.general(AltPT);
-        metodo = 'favorable';
-    } else {
-        MejoresPT = apply(X,MARGIN=2,min); # desfavorable
-        AltPT = rep(0,dim(X)[1])
-        names(AltPT) = rownames(tablaX)
+        names(AltPT) = rownames(tablaX)#le asociamos a la tabla el nombre de las alternativas
+        PuntoIdeal = min(AltPT);#consideramos el punto ideal el mínimo
+        Alt_PuntoIdeal = which.min.general(AltPT);#calculamos sual es el mínimo
+        metodo = 'favorable';#identificamos que estamso usando el método para el caso favorable
+    } else {# en caso contrario y ser de costos
+        MejoresPT = apply(X,MARGIN=2,min); # desfavorable, calculo el mínimo por filas
+        AltPT = rep(0,dim(X)[1])#creamos un vectro con tantos 0 como número de filas tenga X
+        names(AltPT) = rownames(tablaX)#le asociamos a la tabla el nombre de las alternativas
         for (i in 1:dim(X)[1]) {
             AltPT[i] = distanciaEuclidea(MejoresPT,X[i,])
-        }
+        }#para cada una de los valores de AltPT le asociamos el valos de la distancia euclidea calculada para
+        #los mínimos por filas.
         ##AltPT
-        PuntoIdeal = min(AltPT);
-        Alt_PuntoIdeal = which.min.general(AltPT);
-        metodo = 'desfavorable';
+        PuntoIdeal = min(AltPT);#el punto ideal será el mínimo de ese vector.
+        Alt_PuntoIdeal = which.min.general(AltPT);#vemos a que variable se le corresponde el valor de puntto ideal
+        metodo = 'desfavorable';#asignamos que estamos usando el método en el caso de ser desfavorable
+        #es decir para costos
     }
     resultados = list();
-    resultados$criterio = 'Punto Ideal';
-    resultados$metodo = metodo;
-    resultados$tablaX = tablaX;
-    resultados$Mejores = MejoresPT;
-    resultados$ValorAlternativas = AltPT;
-    resultados$ValorOptimo = PuntoIdeal;
-    resultados$AlternativaOptima = Alt_PuntoIdeal;
+    resultados$criterio = 'Punto Ideal';#nombre del criterio
+    resultados$metodo = metodo;#beneficios o costos
+    resultados$tablaX = tablaX;#tabla de decisión
+    resultados$Mejores = MejoresPT;#mínimos o máximos por filas
+    resultados$ValorAlternativas = AltPT;#promedios por fila
+    resultados$ValorOptimo = PuntoIdeal;#valor asociado a la alternativa óptima
+    resultados$AlternativaOptima = Alt_PuntoIdeal; #nombre de la alternativa óptima
 #aqui estamos asociando a resultados todas las soluciones obtenidas para que se
     #visualice todos los calculos juntos, es decir se verá el títulos del método usado
     #el valor de las alternativas el punto ideal, etc.
