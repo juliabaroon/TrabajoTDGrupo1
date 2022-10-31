@@ -15,6 +15,7 @@ lang: es
 frontside: 12pt 
 urlcolor: blue
 ---
+
 \newpage
 
 ```{r setup, include=FALSE}
@@ -26,10 +27,9 @@ source("funcionesincertidumbre.R")
 library(kableExtra)
 ```
 
-
 # criterio.Todos
 
-Vamos a probar con ejemplos de la relación el nuevo _"criterio.Todos"_.
+Vamos a probar con ejemplos de la relación el nuevo *"criterio.Todos"*.
 
 ## **Ejemplo Ejercicio 4**
 
@@ -42,10 +42,10 @@ res= criterio.Todos(tb04, alfa=0.5, favorable = F)
 res
 ```
 
-
 ## **Ejemplo Ejercicio 1 a)**
 
-Prueba del cambio estético aplicado a la tabla resultante de la función _"criterio.Todos"_
+Prueba del cambio estético aplicado a la tabla resultante de la función
+*"criterio.Todos"*
 
 ```{r}
 tabla1a=crea.tablaX(c(5,4,6,
@@ -70,8 +70,8 @@ tb01b= crea.tablaX(c(2,12,-3
 criterio.Todos(tb01b, alfa= 0.4, F)
 
 ```
-## **Ejemplo Ejercicio 3**
 
+## **Ejemplo Ejercicio 3**
 
 ```{r}
 tabla3=crea.tablaX(c(24,19,10,16,
@@ -84,7 +84,6 @@ rownames(tabla3)=c("Deportivo","Berlina","Monovolumen","Todo-terreno")
 criterio.Todos(tabla3,alfa=0.5,T)
 
 ```
-
 
 # dibuja.criterio.Hurwicz_Intervalos
 
@@ -105,11 +104,12 @@ dibuja.criterio.Hurwicz(tabla2,T)
 
 ```
 
-## Nueva estética función _"Criterio.Todos"_
+## Nueva estética función *"Criterio.Todos"*
 
 ## **Ejemplo Ejercicio 1 a)**
 
-Prueba del cambio estético aplicado a la tabla resultante de la función _"criterio.Todos"_
+Prueba del cambio estético aplicado a la tabla resultante de la función
+*"criterio.Todos"*
 
 ```{r}
 tabla1a=crea.tablaX(c(5,4,6,
@@ -119,11 +119,13 @@ tabla1a=crea.tablaX(c(5,4,6,
 criterio.Todos(tabla1a,alfa=0.4,T)  
 
 ```
+
 ![image](https://user-images.githubusercontent.com/113537184/198872262-ef6314c1-c260-4572-8984-736df16e9b4b.png)
 
 ## **Ejemplo Ejercicio 1 b)**
 
-Comprobamos que ante casos de empate el cambio estético sigue funcionando y se sombrean todas las alternativas óptimas.
+Comprobamos que ante casos de empate el cambio estético sigue
+funcionando y se sombrean todas las alternativas óptimas.
 
 ```{r}
 tb01b= crea.tablaX(c(2,12,-3
@@ -133,4 +135,5 @@ tb01b= crea.tablaX(c(2,12,-3
 criterio.Todos(tb01b, alfa= 0.4, F)
 
 ```
+
 ![image](https://user-images.githubusercontent.com/113537184/198872239-7143ccb9-3775-4caf-adbc-862c9340efd4.png)
