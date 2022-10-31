@@ -197,22 +197,24 @@ criterio.Hurwicz.General = function(tablaX,alfa=0.3,favorable=TRUE) {
     } else {#en caso de que sea costos
         Altmin = apply(X,MARGIN=1,min);#calculo los mínimo por filas
         Altmax= apply(X,MARGIN=1,max);#calculo los máximos por filas
-        if (alfa<=1) {
-            valfa = c(alfa);
-        } else {
+        if (alfa<=1) {# si el valor del alfa es menor o igual a 1
+            valfa = c(alfa);# le asignamos a la varible valfa dicho valor
+        } else {# en caso contrario
             valfa = seq(from=0,to=1,by=(1/alfa)); ## alfa: 100, 200,
-        }
-        vHurwicz = rep(0,length(valfa))
-        Alt_vHurwicz = rep(0,length(valfa))
+        }#creamos una secuencia de intervalos igual a 1/alfa
+        vHurwicz = rep(0,length(valfa))#creamos un vector de tantos 0 como
+        #variables haya en valfa
+        Alt_vHurwicz = rep(0,length(valfa))#analogo para Alt_vHurwicz
         for (i in 1:length(valfa)) {
-            alfab = valfa[i];
-            vAltH = (1-alfab) * Altmax + alfab * Altmin;
+            alfab = valfa[i];#para cada valor de valfa
+            vAltH = (1-alfab) * Altmax + alfab * Altmin;# aplicamos al formula
+            #(1-alfa) por el vmáximo por filas mas alfa por el mínimo por filas
             vHurwicz[i] = min(vAltH);
-            Alt_vHurwicz[i] = which.min(vAltH);
+            Alt_vHurwicz[i] = which.min(vAltH);#comparamos la igualdad de los mínimos
             Alt_vHurwicz_g = which.min.general(vAltH);
 
         }
-        metodo = 'desfavorable';
+        metodo = 'desfavorable';# Y concluimos con que el método es desfavorable
     }
     resultados = list();
     resultados$criterio = 'Hurwicz';
@@ -225,7 +227,8 @@ criterio.Hurwicz.General = function(tablaX,alfa=0.3,favorable=TRUE) {
         resultados$AlternativaOptima = Alt_vHurwicz_g;
     } else {
         resultados$AlternativaOptima = Alt_vHurwicz;
-    }
+    }#Creamos una solucion general para que sea favorable o desfavorable se muestren
+    #todos los valores calculados el alfa , el método, las alternativas y el valor óptimo
 
     return(resultados);
 
