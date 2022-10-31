@@ -630,7 +630,7 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                kable_classic(full_width = F, html_font = "Cambria") %>%
                kable_paper("hover", full_width = F)%>%
                kable_styling(
-                   bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                   bootstrap_options = c("striped", "bordered", "hover", "condensed", "responsive"),
                    full_width = F
                ) %>%
                column_spec(numestados+6+2,color = "white",
