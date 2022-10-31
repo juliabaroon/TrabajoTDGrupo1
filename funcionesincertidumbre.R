@@ -41,7 +41,7 @@ which.max.general = function(vector) {#proporcionamos un vector a la función
 distanciaEuclidea = function(pto1,pto2) {
     return( sqrt( sum( (pto1-pto2)^2 )  ) )
 }
-
+#trata de enontrar la distancia entre dos puntos
 
 
 criterio.tablaX.ejemplos = function(cual=1) {
@@ -623,7 +623,7 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
                column_spec(numestados+6+2,color = "white",
                    background = ifelse(resultado[,"Veces Optimo"] >=max(conteo), "#3CB371", "#FA8072"))%>%
                row_spec(0, bold = TRUE)
-               
+
            )
 
 }
