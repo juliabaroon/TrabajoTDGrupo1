@@ -9,7 +9,7 @@ empates de manera que pueda haber un mismo conteo en más de una alternativa.
 Además, en el pie de la columna se ha dado la alternativa que finalmente resulta óptima (la que reune un conteo mayor) en caso de que sea solo una, o varias separadas
 por comas en caso contrario.
 
-En cuanto a la estética de la tabla resultante de esta función se han añadido los siguientes cambios: añadido cabecera, modificado la fuente de la letra, añadido marcos, hecho responsiva y dado la cualidad de que al pasar el ratón sobre cualquiera de sus filas esta se sombree en amarillo.
+En cuanto a la estética de la tabla resultante de esta función se han añadido los siguientes cambios: añadido cabecera, modificado la fuente de la letra, añadido marcos y bordes entre filas y columnas, centrado valores, hecho responsiva y dado la cualidad de que al pasar el ratón sobre cualquiera de sus filas esta se sombree en amarillo.
 
 Se ha probado a añadir como cambio estétito el sombreado en verde de aquellas alternativas que resulten óptimas (con un conteo superior en la columna _"Veces óptimo"_)
 y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empates. Este cambio se ha propuesto mediante un _"Pull request"_ habiendo hecho previamente un _"Fork"_ del repositorio.
@@ -34,6 +34,9 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - _criterio.Hurwicz_
   - _dibuja.criterio.Hurwicz_Intervalos_
   - _criterio.Laplace_
+  - _distanciaEuclidea_
+  - _criterio.Hurwicz.General_
+  - _criterio.PuntoIdeal_
   
 ## Problemas propuestos:
  
