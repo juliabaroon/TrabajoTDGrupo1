@@ -499,12 +499,12 @@ criterio.Laplace = function(tablaX,favorable=TRUE) {#damos la tabla de decisión
 ## Punto Ideal
 
 criterio.PuntoIdeal = function(tablaX,favorable=TRUE) {
-
+#tomamos en un rpincipio que es favorable
     X = tablaX;
     if (favorable) {
-        MejoresPT = apply(X,MARGIN=2,max); # favorable
-        AltPT = rep(0,dim(X)[1])
-        for (i in 1:dim(X)[1]) {
+        MejoresPT = apply(X,MARGIN=2,max); # favorable, calculo de max por filas
+        AltPT = rep(0,dim(X)[1])#creamos un vectro con tantos 0 como número de filas tenga X
+        for (i in 1:dim(X)[1]) {#le vamos calculando  a cada valor de ese vector la distancia euclidea
             AltPT[i] = distanciaEuclidea(MejoresPT,X[i,])
         }
         ##AltPT
@@ -532,7 +532,9 @@ criterio.PuntoIdeal = function(tablaX,favorable=TRUE) {
     resultados$ValorAlternativas = AltPT;
     resultados$ValorOptimo = PuntoIdeal;
     resultados$AlternativaOptima = Alt_PuntoIdeal;
-
+#aqui estamos asociando a resultados todas las soluciones obtenidas para que se
+    #visualice todos los calculos juntos, es decir se verá el títulos del método usado
+    #el valor de las alternativas el punto ideal, etc.
     return(resultados);
 
 }
