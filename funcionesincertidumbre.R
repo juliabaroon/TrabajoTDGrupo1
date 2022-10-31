@@ -174,27 +174,29 @@ criterio.Hurwicz.General = function(tablaX,alfa=0.3,favorable=TRUE) {
     # si alfa es un escalar entre 0 y 1 lo obtiene para ese único valor
     # si alfa es igual a un número mayor que 1, lo usa para obtener cálculos para dividir el rango 0-1
     X = tablaX;
-    if (favorable) {
-        Altmin = apply(X,MARGIN=1,min);
-        Altmax= apply(X,MARGIN=1,max);
-        if (alfa<=1) {
-            valfa = c(alfa);
-        } else {
+    if (favorable) {#si son beneficios
+        Altmin = apply(X,MARGIN=1,min);#calculamos el mínimo por filas
+        Altmax= apply(X,MARGIN=1,max);#calculamos el máximo por filas
+        if (alfa<=1) {# si el valor del alfa es menor o igual a 1
+            valfa = c(alfa);# le asignamos a la varible valfa dicho valor
+        } else {#en caso contrario
             valfa = seq(from=0,to=1,by=(1/alfa)); ## alfa: 100, 200,
-        }
-        vHurwicz = rep(0,length(valfa))
-        Alt_vHurwicz = rep(0,length(valfa))
-        for (i in 1:length(valfa)) {
+        }#creamos una secuencia de intervalos igual a 1/alfa
+        vHurwicz = rep(0,length(valfa))#creamos un vector de tantos 0 como
+        #variables haya en valfa
+        Alt_vHurwicz = rep(0,length(valfa))#análogo
+        for (i in 1:length(valfa)) {#para cada uno de los valores de valfa
             alfab = valfa[i];
-            vAltH = alfab * Altmax + (1-alfab) * Altmin;
-            vHurwicz[i] = max(vAltH);
-            Alt_vHurwicz[i] = which.max(vAltH);
+            vAltH = alfab * Altmax + (1-alfab) * Altmin;#Calculamos la fórmula
+            #alfa*Optimista + (1-alfa)Pesimista
+            vHurwicz[i] = max(vAltH);#buscamos el valor máximo.
+            Alt_vHurwicz[i] = which.max(vAltH);#vemos si coincide con el del vector Alt_vHurwicz
             Alt_vHurwicz_g = which.max.general(vAltH);
         }
-        metodo = 'favorable';
-    } else {
-        Altmin = apply(X,MARGIN=1,min);
-        Altmax= apply(X,MARGIN=1,max);
+        metodo = 'favorable';#Mostrar la solución favorable
+    } else {#en caso de que sea costos
+        Altmin = apply(X,MARGIN=1,min);#calculo los mínimo por filas
+        Altmax= apply(X,MARGIN=1,max);#calculo los máximos por filas
         if (alfa<=1) {
             valfa = c(alfa);
         } else {
