@@ -627,6 +627,7 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
     # esta tabla resultante nos aparecerá al ejecutar la función en el "Viewer" de RStudio
    return(resultado %>%
                kbl(caption = "Criterios Decisión Bajo Incertidumbre") %>%
+              row_spec(1:nrow(resultado), align = "c") %>%
                kable_classic(full_width = F, html_font = "Cambria") %>%
                kable_paper("hover", full_width = F)%>%
                kable_styling(
