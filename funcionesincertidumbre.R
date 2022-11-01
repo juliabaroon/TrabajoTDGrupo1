@@ -561,7 +561,11 @@ criterio.PuntoIdeal = function(tablaX,favorable=TRUE) {
 ## Todos los criterios
 
 criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
-
+    # facilitamos a la función la matriz de decisión creada con crea.tablaX
+    # indicamos si la matriz es de beneficios y por tanto se maximiza (favorable=T)
+    # o si por el contrario es de costos y se minimiza (favorable=F)
+    # calculamos la solución de los criterios con un valor de alfa del 0.3
+    # y aplicamos lo mismo en los siguientes vectores:
     cri01 = criterio.Wald(tablaX,favorable);
     cri02 = criterio.Optimista(tablaX,favorable);
     cri03 = criterio.Hurwicz(tablaX,alfa,favorable);
@@ -569,21 +573,21 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
     cri05 = criterio.Laplace(tablaX,favorable);
     cri06 = criterio.PuntoIdeal(tablaX,favorable);
 
-    numestados = ncol(tablaX)
-    numalterna = nrow(tablaX)
+    numestados = ncol(tablaX) #número de columnas de la matriz decisión
+    numalterna = nrow(tablaX) #número de filas de la matriz decisión
 
     resultado = cbind(tablaX,cri01$ValorAlternativas,cri02$ValorAlternativas,
                       cri03$ValorAlternativas,cri04$ValorAlternativas,
-                      cri05$ValorAlternativas,cri06$ValorAlternativas);
+                      cri05$ValorAlternativas,cri06$ValorAlternativas); #unimos en una tabla el valor de las alternativas
 
     decopt = c(rep(NA,numestados),cri01$AlternativaOptima[1],
                cri02$AlternativaOptima[1],cri03$AlternativaOptima[1],
                cri04$AlternativaOptima[1],cri05$AlternativaOptima[1],
-               cri06$AlternativaOptima[1]);
+               cri06$AlternativaOptima[1]); #creamos un vector con los valores de la alternativa óptima
 
     resultado = rbind(resultado,decopt);
 
-    colnames(resultado)[numestados+1] = cri01$criterio;
+    colnames(resultado)[numestados+1] = cri01$criterio; #desplazando +1 el número de estados, denotamos el nombre de cada criterio
     colnames(resultado)[numestados+2] = cri02$criterio;
     colnames(resultado)[numestados+3] = cri03$criterio;
     colnames(resultado)[numestados+4] = cri04$criterio;
@@ -591,9 +595,9 @@ criterio.Todos = function(tablaX,alfa=0.3,favorable=TRUE) {
     colnames(resultado)[numestados+6] = cri06$criterio;
 
     if (favorable) {
-        rownames(resultado)[numalterna+1] = 'iAlt.Opt (fav.)';
+        rownames(resultado)[numalterna+1] = 'iAlt.Opt (fav.)'; #le asignamos a las filas el nombre de la altervativa óptima favorable
     } else {
-        rownames(resultado)[numalterna+1] = 'iAlt.Opt (Desfav.)';
+        rownames(resultado)[numalterna+1] = 'iAlt.Opt (Desfav.)'; #le asignamos a las filas el nombre de la altervativa óptima desfavorable
     }
 
 
