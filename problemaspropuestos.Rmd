@@ -67,7 +67,8 @@ Decidir cuál es la mejor alternativa según todos los criterios si lo que quier
 
 tbJB=crea.tablaX(c(md11,md12,md13,
                    md21,md22,md23,
-                   md31,md32,md33),3,3)
+                   md31,md32,md33),3,3, c("Agencia 1", "Agencia 2",
+                                          " Sin Agencia"))
 
 #Criterio Wald
 
@@ -83,6 +84,7 @@ optimistaJB
 
 hurwiczJB=criterio.Hurwicz(tbJB, 0.5, F)
 hurwiczJB
+dibuja.criterio.Hurwicz(tbJB,F)
 
 # Criterio Savage
 
