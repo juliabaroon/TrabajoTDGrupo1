@@ -1,8 +1,8 @@
 ---
-title: "Introducción Funciones Incertidumbre"
+title: "Funciones Incertidumbre"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{my-vignette}
+  %\VignetteIndexEntry{Funciones Incertidumbre}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,10 +14,43 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(FuncionesIncertidumbre)
-```
+## HEADING
+**Introducción** <br/>
+
+*INFORMACIÓN*
 
 Este paquete esta orientado a la aplicación en la rama de la estadística asociada a la Teoría de la Decisión de criterios que nos permitan obtener que alternativas son las óptimas ante una serie de estados de la naturaleza.
 
 Las funciones de incertidumbre se caracterizan por no tener una probabilidad asociada a cada posible suceso, luego se decide bajo incertidumbre.
+
+*USO*
+
+Para poder aplicar este paquete a la resolución de problemas de decisión bajo incertidumbre, primero hay que crear una tabla a partir de la matriz de decisión con la función *crea.tablaX*. 
+
+A continuación, ya se puede proporcionar dicha tabla a cualquiera de las funciones referentes a los criterios, y esta devolverá datos relevantes como la alternativa óptima o el valor óptimo para el problema.
+
+**Funciones** <br/>
+
+```{r setup}
+library(FuncionesIncertidumbre)
+```
+
+- **crea.tablaX**
+
+```{r}
+crea.tablaX(c(1,2,
+              3,4,
+              5,6),3,2)
+
+```
+
+- **criterio.Wald**
+
+```{r}
+tabla=crea.tablaX(c(1,2,
+              3,4,
+              5,6),3,2)
+criterio.Wald(tabla, favorable = F)
+
+```
+
