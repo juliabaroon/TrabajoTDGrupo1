@@ -13,6 +13,11 @@ En cuanto a la estética de la tabla resultante de esta función se han añadido
 
 Se ha probado a añadir como cambio estétito el sombreado en verde de aquellas alternativas que resulten óptimas (con un conteo superior en la columna _"Veces óptimo"_)
 y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empates. Este cambio se ha propuesto mediante un _"Pull request"_ habiendo hecho previamente un _"Fork"_ del repositorio.
+
+  * *crea.tablaX*
+  
+  Se ha dado la posibilidad de proporcionar los nombres de las alternativas en la función de manera que las filas de la tabla tengan un nombre asociado.
+ 
  
  ## Probar funciones y modificaciones:
  
@@ -24,8 +29,8 @@ y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empate
  
   * *crea.tablaX*
   
-  Se ha dado la posibilidad de proporcionar los nombres de las alternativas en la función de manera que las filas de la tabla tengan un nombre asociado.
- 
+  Se ha comprobado que tanto como si se dan o no nombres a las alternativas la función trabaja correctamente.
+  
 ## Comentar funciones:
  
 Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidumbre.R"* de forma que cada uno de los integrantes debemos comentar 3 de ellas. Indicaremos que hace cada comando y, en caso de haberlas, las funciones teóricas que se están aplicando.
