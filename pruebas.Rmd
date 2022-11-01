@@ -143,6 +143,8 @@ criterio.Todos(tb01b, alfa= 0.4, F)
 
 ![image](https://user-images.githubusercontent.com/113537184/198872239-7143ccb9-3775-4caf-adbc-862c9340efd4.png)
 
+# crea.tablaX
+
 ## **Ejemplo Ejercicio 3**
 
 Probamos a proporcionar directamente los nombres de las alternativas en lal función "crea.tablaX".
@@ -158,3 +160,5 @@ tabla3=crea.tablaX(c(24,19,10,16,
 criterio.Todos(tabla3,alfa=0.5,T)
 
 ```
+
+![image](https://user-images.githubusercontent.com/113537184/199224661-b45904c1-6ff9-41ba-b6a1-fc6b5e942c5b.png)
