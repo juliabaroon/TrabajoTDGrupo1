@@ -73,3 +73,9 @@ La Wiki incluye:
 
 Un archivo _README_ dice rápidamente lo que tu proyecto puede hacer (en nuestro caso que cambios o añadidos hemos hecho), mientras que puedes utilizar la _Wiki_ para 
 proporcionar documentación adicional (como información más específica asociada a nuestro grupo).
+
+## Vignette:
+
+Los paquetes de R están obligados a incluir documentación sobre sus funciones y conjuntos de datos. Sin embargo, a veces es difícil entender la utilidad de un paquete viendo la documentación de sus funciones de forma aislada. Es por ello que algunos paquetes incluyen vignettes, que son documentos que explican en detalle la funcionalidad de un paquete combinando sus distintas funciones para, por ejemplo, resolver un problema. 
+
+Nuestra vignette incluye una breve introducción sobre la decisión bajo incertidumbre y el uso de los criterios que nos permiten resolver problemas relacionados con dicho tema. Además, ilustra ejemplos usando las funciones del paquete para facilitar su uso
