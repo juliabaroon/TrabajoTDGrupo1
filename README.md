@@ -16,7 +16,7 @@ y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empate
 
   * *crea.tablaX*
   
-  Se ha dado la posibilidad de proporcionar los nombres de las alternativas en la función de manera que las filas de la tabla tengan un nombre asociado.
+ Se ha dado la posibilidad de proporcionar los nombres de las alternativas en la función de manera que las filas de la tabla tengan un nombre asociado.
  
  
  ## Probar funciones y modificaciones:
@@ -26,10 +26,8 @@ y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empate
  Se ha comprobado que la función _criterio.Todos_ actualizada funciona correctamente en todos los ejercicios.
  
  Se ha comprobado que los cambios estéticos de la función _criterio.Todos_ se ven correctamente en todos los casos.
- 
-  * *crea.tablaX*
-  
-  Se ha comprobado que tanto como si se dan o no nombres a las alternativas la función trabaja correctamente.
+
+ Se ha comprobado que tanto como si se dan o no nombres a las alternativas la función _crea.tablaX_ trabaja correctamente.
   
 ## Comentar funciones:
  
