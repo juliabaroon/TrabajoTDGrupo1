@@ -248,60 +248,66 @@ criterio.Hurwicz.General = function(tablaX,alfa=0.3,favorable=TRUE) {
 
 
 dibuja.criterio.Hurwicz = function(tablaX,favorable=TRUE) {
-    X = tablaX;
-    Altmin = apply(X,MARGIN=1,min);
-    Altmax = apply(X,MARGIN=1,max);
-    valfa = seq(from=0,to=1,by=0.05);
-    vHurwicz = rep(0,length(valfa));
-    Alt_vHurwicz = rep(0,length(valfa));
-    for (i in 1:length(valfa)) {
-        alfab = valfa[i];
-        if (favorable) {
-            vAltH = alfab * Altmax + (1-alfab) * Altmin;
-            vHurwicz[i] = max(vAltH)
-        } else {
-            vAltH = alfab * Altmin + (1-alfab) * Altmax;
-            vHurwicz[i] = min(vAltH)
+    # facilitamos a la función la matriz de decisión creada con crea.tablaX
+    # e indicamos si la matriz es de beneficios y por tanto se maximiza (favorable=T)
+    # o si por el contrario es de costos y se minimiza (favorable=F)
+    X = tablaX; # llamamos X a la tabla de decisión
+    Altmin = apply(X,MARGIN=1,min); #vector mínimo por filas
+    Altmax = apply(X,MARGIN=1,max); #vector máximo por filas
+    valfa = seq(from=0,to=1,by=0.05); #creamos un vector de valores para valfa siendo una secuencia desde 0 a 1
+    vHurwicz = rep(0,length(valfa));#creamos un vector de 0 siendo n el número de variables en alfa
+    Alt_vHurwicz = rep(0,length(valfa));#creamos un vector de 0 siendo n el número de variables en alfa
+    for (i in 1:length(valfa)) { #para cada uno de los valores de alfa
+        alfab = valfa[i];#valor de valfa de la decisión i
+        if (favorable) { #si son beneficios
+            vAltH = alfab * Altmax + (1-alfab) * Altmin; #aplicamos la fórmula del criterio de hurwicz
+            # alfa*Optimista + (1-alfa)*Pesimista
+            vHurwicz[i] = max(vAltH) #buscamos el valor máximo
+        } else { #caso contrario
+            vAltH = alfab * Altmin + (1-alfab) * Altmax; #aplicamos la fórmula del criterio de hurwicz
+            # alfa*Pesimista + (1-alfa)*Optimista
+            vHurwicz[i] = min(vAltH) #buscamos el valor mínimo
         }
 
     }
 
-    x0=0;x1=1;
-    y0 = min(Altmin);
-    y1 = max(Altmax);
-    rg = y1-y0;
+    x0=0;x1=1; #definimos dos variables
+    y0 = min(Altmin); # mínimo del vector de los mínimos
+    y1 = max(Altmax); # máximo del vector de los máximo
+    rg = y1-y0; #creamos un vector de la diferencia entre el max y min
     y0=y0-0.1*rg;y1=y1+0.1*rg;
     plot(c(x0,x1), c(y0,y1), type = "n", xlab = "alpha", ylab = "Criterio Hurwicz");
-    nn = length(Altmin);
+    nn = length(Altmin); #tamaño del vector de los mínimos
     colores = rainbow(nn);
-    abline(v=0);
-    abline(v=1);
-    if (favorable) {
-        for (i in 1:nn) {
-            aa = Altmin[i];
-            bb = (Altmax[i] - Altmin[i]);
-            abline(a=aa,b=bb,col=colores[i]);
+    abline(v=0); #línea vertical en X=0
+    abline(v=1); #línea vertical en X=1
+    if (favorable) { #si son beneficios
+        for (i in 1:nn) { #para cada uno de los valores del vector nn
+            aa = Altmin[i]; #minimo de la decisión i
+            bb = (Altmax[i] - Altmin[i]); #diferencia entre el máximo y mínimo de la decisión i
+            abline(a=aa,b=bb,col=colores[i]); # a intercepto y b pendiente
         }
-    } else {
-        for (i in 1:nn) {
-            aa = Altmax[i];
-            bb = (Altmin[i] - Altmax[i]);
-            abline(a=aa,b=bb,col=colores[i]);
+    } else {#caso contrario
+        for (i in 1:nn) {#para cada uno de los valores de nn
+            aa = Altmax[i]; #máximo de la decisión i
+            bb = (Altmin[i] - Altmax[i]); #diferencia entre el máximo y el mínimo de la decisión i
+            abline(a=aa,b=bb,col=colores[i]); #a intercepto y b pendiente
         }
     }
     lines(valfa,vHurwicz,col=rainbow(nn+1)[nn+1],lty=3,lwd=3)
-    if (favorable) {
-        legend("bottomright",legend=rownames(X),fill=colores,inset=0.05)
+    if (favorable) {#si son beneficios
+        legend("bottomright",legend=rownames(X),fill=colores,inset=0.05) # añadimos la leyenda en la parte inferior derecha
         title("Criterio de Hurwicz (favorable - línea discontinua)")
-    } else {
-        legend("topright",legend=rownames(X),fill=colores,inset=0.05)
+    } else { #caso contrario
+        legend("topright",legend=rownames(X),fill=colores,inset=0.05) # añadimos la leyenda en la parte superior derecha
         title("Criterio de Hurwicz (desfavorable - línea discontinua)")
     }
 
 }
 
 
-# FUNCION : esta funcion nos da los valores de alfa para los que las alternativas cambian
+
+# FUNCION : esta función nos da los valores de alfa para los que las alternativas cambian
 
 # Entrada: Tabla, favorable (T/F)
 # Salida: Intervalo -> Alternativa (óptima para ese intervalo de alfa)
