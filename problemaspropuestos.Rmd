@@ -322,5 +322,5 @@ resAB
 
 ```
 
-La mayoría de criterios coinciden con que Juan debe adquirir su ordenador en "Media Makt", exceptuando el criterio de Wald que indica que la opción más económica sería comprarlo en "PcComponentes".
+La mayoría de criterios coinciden con que Juan debe adquirir su ordenador para sus estudios en "Media Makt", exceptuando el criterio de Wald que indica que la opción más económica sería comprarlo en "PcComponentes".
 
