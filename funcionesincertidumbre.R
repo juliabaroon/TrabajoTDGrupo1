@@ -124,7 +124,7 @@ criterio.Optimista = function(tablaX,favorable=TRUE) {# le proporcionamos a la f
         Alt_Maximax = which.min.general(AltM);#posición del mínimo
         metodo = 'desfavorable';#método en el que nos encontramos, en este caso, la alternativa desfavorable
     }
-    resultados = list();#función para construir listas
+    resultados = list();#función para construir listas vacías
     resultados$criterio = 'Optimista';#indicamos el nombre del método en el que estamos
     resultados$metodo = metodo;#indicamos los dos posibles métodos que hay: favorable o desfavorable
     resultados$tablaX = tablaX;#matriz de decisión
@@ -436,42 +436,44 @@ dibuja.criterio.Hurwicz_Intervalos = function(tablaX,favorable=TRUE,mostrarGrafi
 
 ## Savage
 
-criterio.Savage = function(tablaX,favorable=TRUE) {
+criterio.Savage = function(tablaX,favorable=TRUE) {#le ofrecemos la matriz de decisión construida con 'crea.tablaX'
+    #Posteriormente le damos el método que vayamos a utilizar, si es de beneficios y hay que maximizar(favorable=T)
+    #o si es de costos y hay que minimizar(favorable=F)
 
-    X = tablaX;
-    if (favorable) {
-        Mejores = apply(X,MARGIN=2,max);
-        temp1 = rep(Mejores,dim(X)[1])
-        Mmejores = matrix(temp1,nrow=dim(X)[1],ncol=dim(X)[2],byrow=TRUE);
-        Pesos = abs(Mmejores-X);
+    X = tablaX;#llamamos a la tablaX
+    if (favorable) {#condición favorable
+        Mejores = apply(X,MARGIN=2,max);#ofrece los maximos por filas de X
+        temp1 = rep(Mejores,dim(X)[1])#repite los maximos anteriores las veces igual al primer valor de la dimension de X
+        Mmejores = matrix(temp1,nrow=dim(X)[1],ncol=dim(X)[2],byrow=TRUE);#construye una matriz con el primer valor de la dimensión la dimension de X * el segundo valor de la dimension de X con los valores anteriores
+        Pesos = abs(Mmejores-X);#los pesos se calculan haciendo el valor absoluto de la matriz con los mejores casos favorables menos X
         ##print(Pesos)
         ## Ahora criterio Wald Minimax Pesimista (desfavorable)
-        AltWS= apply(Pesos,MARGIN=1,max);
-        Savage = min(AltWS);
-        Alt_Savage = which.min.general(AltWS);
-        metodo = 'favorable';
-    } else {
-        Mejores = apply(X,MARGIN=2,min);
-        temp1 = rep(Mejores,dim(X)[1])
-        Mmejores = matrix(temp1,nrow=dim(X)[1],ncol=dim(X)[2],byrow=TRUE);
-        Pesos = abs(Mmejores-X);
+        AltWS= apply(Pesos,MARGIN=1,max);#ofrece los maximos por filas de los pesos
+        Savage = min(AltWS);#la alternativa desfavorable es el mínimo de los máximos anteriores
+        Alt_Savage = which.min.general(AltWS);#lugar donde se encuentra la alternativa desfavorable
+        metodo = 'favorable';#indicamos el método utilizado
+    } else {#alternativa
+        Mejores = apply(X,MARGIN=2,min);#ofrece los minimos por filas de X
+        temp1 = rep(Mejores,dim(X)[1])#repite los minimos anteriores las veces igual al primer valor de la dimension de X
+        Mmejores = matrix(temp1,nrow=dim(X)[1],ncol=dim(X)[2],byrow=TRUE);#construye una matriz con el primer valor de la dimensión la dimension de X * el segundo valor de la dimension de X con los valores anteriores
+        Pesos = abs(Mmejores-X);#los pesos se calculan haciendo el valor absoluto de la matriz con los mejores casos favorables menos X
         ## Ahora criterio Wald Minimax (desfavorable)
-        AltWS= apply(Pesos,MARGIN=1,max);
-        Savage = min(AltWS);
-        Alt_Savage = which.min.general(AltWS);
-        metodo = 'desfavorable';
+        AltWS= apply(Pesos,MARGIN=1,max);#ofrece los maximos por filas de X
+        Savage = min(AltWS);#la alternativa desfavorable es el mínimo de los máximos anteriores
+        Alt_Savage = which.min.general(AltWS);#lugar donde se encuentra la alternativa desfavorable
+        metodo = 'desfavorable';#indicamos el método utilizado
     }
-    resultados = list();
-    resultados$criterio = 'Savage';
-    resultados$metodo = metodo;
-    resultados$tablaX = tablaX;
-    resultados$Mejores = Mejores;
-    resultados$Pesos = Pesos;
-    resultados$ValorAlternativas = AltWS;
-    resultados$ValorOptimo = Savage;
-    resultados$AlternativaOptima = Alt_Savage;
+    resultados = list();#creamos una lista vacía
+    resultados$criterio = 'Savage';#indicamos el nombre del criterio utilizado
+    resultados$metodo = metodo;#señalan los beneficios o los costos correpondientes
+    resultados$tablaX = tablaX;#matriz de decisión
+    resultados$Mejores = Mejores;#ofrece los óptimos favorables
+    resultados$Pesos = Pesos;#ofrece los pesos calculados
+    resultados$ValorAlternativas = AltWS;#promedio por filas
+    resultados$ValorOptimo = Savage;#valor asociado a la alternativa óptima
+    resultados$AlternativaOptima = Alt_Savage;#nombre de la alternativa óptima
 
-    return(resultados);
+    return(resultados);#ofrece todos los resultados agrupados
 
 
 }
