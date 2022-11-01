@@ -22,6 +22,10 @@ y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empate
  
  Se ha comprobado que los cambios estéticos de la función _criterio.Todos_ se ven correctamente en todos los casos.
  
+  * *crea.tablaX*
+  
+  Se ha dado la posibilidad de proporcionar los nombres de las alternativas en la función de manera que las filas de la tabla tengan un nombre asociado.
+ 
 ## Comentar funciones:
  
 Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidumbre.R"* de forma que cada uno de los integrantes debemos comentar 3 de ellas. Indicaremos que hace cada comando y, en caso de haberlas, las funciones teóricas que se están aplicando.
