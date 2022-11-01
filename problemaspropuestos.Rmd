@@ -288,7 +288,7 @@ tbAB=crea.tablaX(c(m11,m12,
 
 waldAB=criterio.Wald(tbAB,F)
 waldAB
-#Observamos como la mejor alternativa en este primer criterio es comprar en PcComponentes.
+#Observamos como la mejor alternativa en este primer criterio es comprar el ordenador en PcComponentes.
 
 # Criterio Optimista
 
@@ -302,7 +302,7 @@ hurwiczAB
 
 dibuja.criterio.Hurwicz(tbAB,F)
 #Observamos con bastante claridad como comprar en APP-Informática nunca se tendrá como posibilidad si lo que queremos es gastar lo menos posible. 
-#En cambio, vemos como la recta de Media Markt al final acaba siendo la más óptima ya #que es la que minimiza nuestros costes
+#En cambio, vemos como la recta de Media Markt al final acaba siendo la más óptima ya #que es la que minimiza nuestros costes.
 
 # Criterio Savage
 
