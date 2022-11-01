@@ -251,7 +251,7 @@ Decidir cuál es la mejor alternativa según todos los criterios si lo que quier
   
 * Estados de la naturaleza:
   - e1= “Le realizan la instalación”
-  - e2= “Realizan la instalación él mismo”
+  - e2= “Realiza la instalación él mismo”
 
   
 * Matriz de decisión (costos)
@@ -276,7 +276,10 @@ m42= 670+50+80
 tbAB=crea.tablaX(c(m11,m12,
                    m21,m22,
                    m31,m32,
-                   m41,m42),4,2,c("PcComponentes","APP-Informática","Wallapop","Media Markt"))
+                   m41,m42),4,2,c("PcComponentes",
+                                  "APP-Informática",
+                                  "Wallapop",
+                                  "Media Markt"))
 
 
 #Criterio Wald
@@ -296,16 +299,17 @@ hurwiczAB=criterio.Hurwicz(tbAB, 0.5, F)
 hurwiczAB
 
 dibuja.criterio.Hurwicz(tbAB,F)
-#Observamos con bastante claridad como comprar en APP-Informática nunca se tendrá como posibilidad si lo que queremos es gastar lo menos posible. En cambio, vemos como la recta de Media Markt al final acaba siendo la más óptima ya que es la que minimiza nuestros costes
+#Observamos con bastante claridad como comprar en APP-Informática nunca se tendrá como posibilidad si lo que queremos es gastar lo menos posible. 
+#En cambio, vemos como la recta de Media Markt al final acaba siendo la más óptima ya #que es la que minimiza nuestros costes
 
 # Criterio Savage
 
-savageAB=criterio.Savage(tbAB,F)
+savageAB= criterio.Savage(tbAB,F)
 savageAB
 
 # Criterio Laplace
 
-laplaceAB=criterio.Laplace(tbAB,F)
+laplaceAB= criterio.Laplace(tbAB,F)
 laplaceAB
 
 # Criterio Punto Ideal
@@ -322,5 +326,5 @@ resAB
 
 ```
 
-La mayoría de criterios coinciden con que Juan debe adquirir su ordenador para sus estudios en "Media Makt", exceptuando el criterio de Wald que indica que la opción más económica sería comprarlo en "PcComponentes".
+La mayoría de criterios coinciden con que Juan debe adquirir su ordenador para sus estudios en "Media Makt", exceptuando el criterio de Wald que indica que la opción más económica sería comprarlo en "Pc Componentes".
 
