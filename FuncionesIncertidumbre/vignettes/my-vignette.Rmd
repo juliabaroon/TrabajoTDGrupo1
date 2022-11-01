@@ -70,6 +70,95 @@ criterio.Wald(tabla, favorable = F)
 
 ```
 
+- **criterio.Optimista**
+
+Es el criterio justamente opuesto al anterior. Para cada alternativa se supone que va a pasar lo mejor y se elige el mejor valor. El punto negativo de este criterio es que los riesgos no se tienen en cuenta a la hora de tomar una decisión.
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
+
+```{r}
+tabla=crea.tablaX(c(1000,1000,
+                    1001,-1000000),2,2)
+criterio.Optimista(tabla, favorable = F)
+
+```
+
+- **criterio.Hurwicz**
+
+Este criterio valora cada opción con una ponderación entre lo mejor y lo peor posible, que se calcula multiplicando lo mejor por un factor *alfa* entre 0 y 1 y lo peor por *1-alfa* (índices de optimismo y pesimismo). Una vez hecho esto, se elije la el mejor valor obtenido.
+La dificultad de este criterio radica en tener que estimar el valor del índice de optimismo del decisor, por lo que la solución se obtiene para todos los posibles valores de este índice y habrá que elegir en que intervalo resultante situarlo.
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*alfa:* Valor entre 0 y 1 que pondera al citerio optimista, por defecto 0.5.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
+
+```{r}
+tabla = crea.tablaX(c(5,4,6,
+                      2,3,1,
+                      -1,8,7,
+                      5,2,0),
+                      4,3)
+criterio.Hurwicz(tabla,0.5,F)
+```
+
+*Gráfica*
+
+```{r}
+dibuja.criterio.Hurwicz(tabla,F)
+```
+
+
+- **criterio.Savage**
+
+Es un criterio donde el decisor compara el resultado de una alternativa bajo un estado de la naturaleza con todos los demás resultados, independientemente del estado de la naturaleza bajo el que ocurran. Sin embargo, el estado de la naturaleza no es controlable por el decisor, por lo que el resultado de una alternativa sólo debería ser comparado con los resultados de las demás alternativas bajo el mismo estado de la naturaleza.
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
+
+```{r}
+tabla= crea.tablaX(c(0,190.00,
+                     610.00,0.00),2,2)
+criterio.Savage(tabla,F)
+```
+
+
+- **criterio.Punto Ideal**
+
+Consiste en construir un valor en cada escenario *Vj* que será el máximo posible, denominado punto ideal *V*. Posteriormente la valoración de cada alternativa *ai* se define como la distancia del vector de valoraciones *V(ai)* al punto ideal.
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
+
+```{r}
+tabla=crea.tablaX(c(8,4,
+                    0,10),2,2)
+criterio.PuntoIdeal(tabla,F)
+```
+
+- **criterio.Laplace**
+
+Este criterio se basa en el principio de razón insuficiente: A priori, no existe ninguna razón para decir que un estado puede aprecer antes que los demás, por lo que le daremos la misma posibilidad a cada uno de ellos. Por ello, calculamos la media de cada una de las filas de la matriz de valores y elegimos la decisión que tenga mayor media.
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.ç
+
+```{r}
+tabla=crea.tablaX(c(300000,70000,
+                    90000,200000),2,2)
+criterio.Laplace(tabla,F)
+
+```
 
 - **criterio.Todos**
 
@@ -78,7 +167,7 @@ Esta función engloba todos los criterios de manera que nos dice cuál es la alt
 *Argumentos*
 
 -*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
--*alfa:* Valor entre 0 y 1 que pondera al citerio optimista, por defecto 0.3.
+-*alfa:* Valor entre 0 y 1 que pondera al citerio optimista, por defecto 0.5.
 -*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
 
 ```{r}
