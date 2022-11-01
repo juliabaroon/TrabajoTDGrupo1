@@ -46,6 +46,8 @@ crea.tablaX(c(1,2,
 
 - **criterio.Wald**
 
+Para cada alternativa se supone que va a pasar lo peor, y elige aquella alternativa que dé mayor valor. De esta forma se asegura que el peor de los casos se obtenga lo mejor posible, que corresponde a una visión pesimista de loq que puede ocurrir.
+
 ```{r}
 tabla=crea.tablaX(c(1,2,
               3,4,
@@ -53,4 +55,23 @@ tabla=crea.tablaX(c(1,2,
 criterio.Wald(tabla, favorable = F)
 
 ```
+
+
+- **criterio.Todos**
+
+Esta función engloba todos los criterios de manera que nos dice cuál es la alternativa óptima según cada criterio y además realiza un conteo y da para cada alternativa el número de veces que es óptima entre todos los criterios. Finalmente, nos muestra la alternativa que resulta óptima (la que reune un conteo mayor).
+
+```{r}
+library(kableExtra)
+tabla=crea.tablaX(c(2160,360,
+                   720,720,
+                   3480,480),3,2)
+
+criterio.Todos(tabla, alfa=0.5, favorable = F)
+
+```
+
+
+
+
 
