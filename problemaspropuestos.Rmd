@@ -219,3 +219,108 @@ resCG
 ```
 
 La mayoría de criterios coinciden con que Lidia debería irse a Canadá y trabajar en "Constellation Software", exceptuando el criterio optimista que considera como optimó tanto el irse a Canadá como a China en "Gree Electric".
+
+
+
+# Ejercicio 3 (Álvaro Bono)
+
+Juan es un alumno de Ingienería Informática que se encuentra en el último año de carrera. Su ordenador personal está empezado a dar fallos y después de valorarlo durante un tiempo, ha decidido adquirir uno nuevo ya que cree que será una mejor inversión para el futuro.
+Para ello, debe elaborar un presupuesto que se adapte a sus necesidades y deberá valorar distintas opciones.
+
+Como primer tanteo, pensó en adquirir un ordenador por piezas por la página web PcComponentes. Lo más importante para él es que el desempeño de la tarjeta gráfica y procesador sean de gama alta, por los que encontró opciones de 250 y 170 euros respectivamente. El resto de componentes los eligió un servicio automático de recomendación que posee la página que le suponían 345 euros más. Además, en el caso de que prefiera el servicio de instalación del sistema operativo(OS) y piezas cuyo precio son 45 euros , obtendrá un descuento del 5% sobre el precio final. En el caso contrario, debería instalarlo él.
+
+Como siguiente opción decidió visitar APP-Informática, una tienda que se encontraba cerca de su domicilio, donde le ofrecían una mayor calidad de productos que habían salido recientemente en el mercado y por los que tenía que pagar 824 euros por el conjunto (incluido monitor y periféricos). El único problema es que no ofrecían instalación, por lo que preguntó a un amigo que es Técnico. Éste, le ofreció el montaje de las piezas gratis y 25 euros por una clave única de Windows 10. Si no, pensó en instalarlo él mismo y comprar una clave por Amazon de 35 euros.
+
+En tercera posibilidad, contempló la opción de comprar un ordenador por piezas por Wallapop ya que los precios podrían ser mas económicos. Encontró a un vendedor que ofrecía un ordenador ASUS de gama alta por el que, ya montado y con el OS instalado, pedía 800. La otra alternativa era pagar el envío de 15 euros por recibir todas las piezas y disco de instalación por separado.
+
+Por último, fue a MediaMarkt para ver los precios de los portátiles gaming ya que también le interesaba esta opción. El que más le gustó era un Omen de gama media/alta que costaba 670 euros y por el que era necesario pagar una cobertura de daños de 50 euros. La instalación del OS venía incluida en el precio del portátil pero era Windows 10, por lo que si quería comprar una licencia de Windows 11 le costaría 80 euros más.
+
+Decidir cuál es la mejor alternativa según todos los criterios si lo que quiere Juan es gastarse el menos dinero posible.
+
+**Solución**
+
+* Un decisor
+
+* Modelo de costos (desfavorable)
+
+* Alternativas:
+  - d1= “Comprar en PcComponentes”
+  - d2= “Comprar en APP-Informática”
+  - d3= ”Comprar en Wallapop”
+  - d4= "Comprar en Media Markt"
+  
+* Estados de la naturaleza:
+  - e1= “Le realizan la instalación”
+  - e2= “Realizan la instalación él mismo”
+
+  
+* Matriz de decisión (costos)
+
+```{r}
+#Estado 1: "Le realizan la instalación
+m11= (250+170+345+45)*0.95
+m21= 824+25
+m31= 800
+m41= 670+50
+
+#Estado 2: "Realiza la instalación él mismo"
+m12= 250+170+345
+m22= 824+35
+m32= 800+15
+m42= 670+50+80
+```
+
+```{r}
+# Creamos la tabla de decisión
+
+tbAB=crea.tablaX(c(m11,m12,
+                   m21,m22,
+                   m31,m32,
+                   m41,m42),4,2,c("PcComponentes","APP-Informática","Wallapop","Media Markt"))
+
+
+#Criterio Wald
+
+waldAB=criterio.Wald(tbAB,F)
+waldAB
+#Observamos como la mejor alternativa en este primer criterio es comprar en PcComponentes.
+
+# Criterio Optimista
+
+optimistaAB=criterio.Optimista(tbAB,F)
+optimistaAB
+
+# Criterio Hurwicz
+
+hurwiczAB=criterio.Hurwicz(tbAB, 0.5, F)
+hurwiczAB
+
+dibuja.criterio.Hurwicz(tbAB,F)
+#Observamos con bastante claridad como comprar en APP-Informática nunca se tendrá como posibilidad si lo que queremos es gastar lo menos posible. En cambio, vemos como la recta de Media Markt al final acaba siendo la más óptima ya que es la que minimiza nuestros costes
+
+# Criterio Savage
+
+savageAB=criterio.Savage(tbAB,F)
+savageAB
+
+# Criterio Laplace
+
+laplaceAB=criterio.Laplace(tbAB,F)
+laplaceAB
+
+# Criterio Punto Ideal
+
+pidealAB= criterio.PuntoIdeal(tbAB,F)
+pidealAB
+```
+
+```{r}
+# Todos los criterios
+
+resAB= criterio.Todos(tbAB, alfa=0.5, favorable = F)
+resAB
+
+```
+
+La mayoría de criterios coinciden con que Juan debe adquirir su ordenador en "Media Makt", exceptuando el criterio de Wald que indica que la opción más económica sería comprarlo en "PcComponentes".
+
