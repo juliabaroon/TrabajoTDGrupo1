@@ -106,31 +106,33 @@ criterio.Wald = function(tablaX,favorable=TRUE) {
 
 ## Optimista
 
-criterio.Optimista = function(tablaX,favorable=TRUE) {
+criterio.Optimista = function(tablaX,favorable=TRUE) {# le proporcionamos a la función la matriz de decisión creada con crea.tablaX
+# e indicamos si la matriz es de beneficios y por tanto se maximiza (favorable=T)
+# o si por el contrario es de costos y se minimiza (favorable=F)
 
-    X = tablaX;
-    if (favorable) {
-        AltM = apply(X,MARGIN=1,max);
+    X = tablaX;#llamamosa la tablaX
+    if (favorable) {#primera condición
+        AltM = apply(X,MARGIN=1,max);#máximo por filas
         ##AltM
-        Maximax = max(AltM);
-        Alt_Maximax = which.max.general(AltM);
-        metodo = 'favorable';
-    } else {
-        AltM = apply(X,MARGIN=1,min);
+        Maximax = max(AltM);#valor máximo de los máximos por filas
+        Alt_Maximax = which.max.general(AltM);#posición en la que se encuentra el máximo
+        metodo = 'favorable';#indicamos que el método es de beneficios y por tanto favorable
+    } else {#alternativa a la condición (caso desfavorable)
+        AltM = apply(X,MARGIN=1,min);#mínimo por filas
         ##AltM
-        Maximax = min(AltM);
-        Alt_Maximax = which.min.general(AltM);
-        metodo = 'desfavorable';
+        Maximax = min(AltM);#cogemos el mínimo de los mínimos por filas
+        Alt_Maximax = which.min.general(AltM);#posición del mínimo
+        metodo = 'desfavorable';#método en el que nos encontramos, en este caso, la alternativa desfavorable
     }
-    resultados = list();
-    resultados$criterio = 'Optimista';
-    resultados$metodo = metodo;
-    resultados$tablaX = tablaX;
-    resultados$ValorAlternativas = AltM;
-    resultados$ValorOptimo = Maximax;
-    resultados$AlternativaOptima = Alt_Maximax;
+    resultados = list();#función para construir listas
+    resultados$criterio = 'Optimista';#indicamos el nombre del método en el que estamos
+    resultados$metodo = metodo;#indicamos los dos posibles métodos que hay: favorable o desfavorable
+    resultados$tablaX = tablaX;#matriz de decisión
+    resultados$ValorAlternativas = AltM;#valor de las alternativas
+    resultados$ValorOptimo = Maximax;#nos muestra el valor de la alternativa óptima
+    resultados$AlternativaOptima = Alt_Maximax;#nombre asociado a la alternativa óptima
 
-    return(resultados);
+    return(resultados);#devuelve todos los resultados agrupados
 
 
 }
