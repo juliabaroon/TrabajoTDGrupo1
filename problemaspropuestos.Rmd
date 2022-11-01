@@ -113,7 +113,7 @@ planear el viaje por su cuenta. El criterio optimista es el único que recomiend
 alternativa 1, esto es, viajar con la agencia 1.
 
 
-# Ejercicio 1 (Claudia García)
+# Ejercicio 2 (Claudia García)
 
 Lidia está buscando trabajo como programadora y se está planteando la posibilidad de irse a otro país a trabajar. Actualmente reside en España y tiene conocimiento exclusivamente de R. 
 
