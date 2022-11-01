@@ -170,9 +170,7 @@ m42=3000+400-100-300
 tbCG=crea.tablaX(c(m11,m12,
                    m21,m22,
                    m31,m32,
-                   m41,m42),4,2)
-
-rownames(tbCG)=c("Sevilla","Alemania","Canadá","China")
+                   m41,m42),4,2,c("Sevilla","Alemania","Canadá","China"))
 
 
 #Criterio Wald
