@@ -28,15 +28,15 @@ crea.tablaX = function(vector_matporfilas,numalternativas=3,numestados=4,v.nombr
 
 
 
-which.min.general = function(vector) {
-    minimo = min(vector);
-    res = which(vector == minimo);
-    return(res);
+which.min.general = function(vector) {#proporcionamos un vector a la función
+    minimo = min(vector);#calculamos el valor mínimo del vector
+    res = which(vector == minimo);#en que posición del vector se encuentra el valor mínimo
+    return(res);#devolvemos la posición obtenida
 
 }
 
 which.max.general = function(vector) {#proporcionamos un vector a la función
-    maximo = max(vector);#calculamos el valor máximo del mismo (valor)
+    maximo = max(vector);#calculamos el valor máximo del vector
     res = which(vector == maximo);#en que posición del vector se encuentra el valor máximo
     return(res);#devolvemos la posición obtenida
 }
