@@ -112,4 +112,112 @@ Según la mayoría de  criterios, la mejor alternativa para María es la 3, es d
 planear el viaje por su cuenta. El criterio optimista es el único que recomienda la
 alternativa 1, esto es, viajar con la agencia 1.
 
-(cambiar la solución cuando mejoremos las funciones)
+
+# Ejercicio 1 (Claudia García)
+
+Lidia está buscando trabajo como programadora y se está planteando la posibilidad de irse a otro país a trabajar. Actualmente reside en España y tiene conocimiento exclusivamente de R. 
+
+En Sevilla se plantea echar el CV en "Andalucía Tech" empresa que le paga al mes 2000€ por sus conocimientos de R pero que le plantea la posibilidad de apuntarse a un curso totalmente gratuito de Python que incrementaría su sueldo en 600€ ya que manejaría 2 lenguajes de programación. Este nuevo lenguaje exige algo más a su ordenador, el cambio a uno superior costaría unos 200€. Además Lidia sabe que si se queda aquí no tendría que molestarse por el alquiler y la comida ya que reside en casa de sus padres. 
+
+Por otro lado se plantea ir a Alemania y trabajar en "Deutschland Pericom", allí el domicilio y la comida puede costarle alrededor de 500€ al mes. La empresa le paga 3300€ pero le aumentaría el sueldo a 3700€ al mes en caso de manejar Python. La mayoría de academias del país lo enseñan por unos 250€ y por el ordenador no tendría que preocuparse ya que la empresa te proporciona uno nada más incorporarte.
+
+Cabe la posibilidad de que Lidia se vaya a trabajar a Canadá en "Constellation Software", allí residir resulta algo más caro suponiéndole 800€ al mes más 200€ del seguro privado de sanidad que debería pagar. Lo bueno es que la empresa le paga 4000€ independientemente del lenguaje que maneje, trabajando siempre con los ordenadores de la oficina.
+
+Por último podría irse a China, donde vive su tia que no tiene inconveniente en dejarle una habitación teniendo que aportar únicamente 100€ al mes para alimentación. En "Gree Electric" le pagan 3000€ en caso de conocer R y le incrementan el sueldo 400€ por conocer Python, lenguaje que tendría que aprender por su cuenta ya que allí no hay academias. El cambio de ordenador para poder ejecutar Python le supondría un costo de 300€.
+
+¿Dónde debería trabajar Lidia si se considera una persona optimista?
+
+**Solución**
+
+* Un decisor
+
+* Incertidumbre
+
+* Modelo de beneficios (favorable)
+
+* Alternativas:
+  - d1= "Andalucía Tech" SEVILLA
+  - d2= "Deutschland Pericom" ALEMANIA
+  - d3= "Constellation Software" CANADÁ
+  - d4= "Gree Electric" CHINA
+  
+* Estados de la naturaleza:
+  - e1= "No aprende Python"
+  - e2= "Aprende Python"
+  
+* Matriz de decisión (beneficios)
+
+```{r}
+#Estado e1: No aprende Python
+m11=2000
+m21=3300-500
+m31=4000-(800+200)
+m41=3000-100
+
+#Estado e2: Aprende Python
+m12=2000+600-200
+m22=3700-500-250
+m32=4000-(800+200)
+m42=3000+400-100-300
+
+
+```
+
+
+```{r}
+# Creamos la tabla de decisión
+
+tbCG=crea.tablaX(c(m11,m12,
+                   m21,m22,
+                   m31,m32,
+                   m41,m42),4,2)
+
+rownames(tbCG)=c("Sevilla","Alemania","Canadá","China")
+
+
+#Criterio Wald
+
+waldCG=criterio.Wald(tbCG,T)#True puesto que se trata de maximizar beneficios
+waldCG
+
+# Criterio Optimista
+
+optimistaCG=criterio.Optimista(tbCG,T)
+optimistaCG
+
+# Criterio Hurwicz
+
+hurwiczCG=criterio.Hurwicz(tbCG, 0.7, T)#Dado que lidia se considera una persona optimista tomamos alfa=0.7
+hurwiczCG
+
+dibuja.criterio.Hurwicz(tbCG,T)
+#Observamos como claramente quedarse en Sevilla
+#nunca se tomará como alternativa óptima ya que proporciona unos beneficios inferiores al resto en todo momento
+#Mientras que marcharse a Canadá es una recta constante dado que los beneficios no dependen del estado (aprender o no Python)
+#Canadá y China coinciden exclusivamente en el caso de que alfa sea=1 es decir, se pondere al máximo el criterio optimista.
+
+# Criterio Savage
+
+savageCG=criterio.Savage(tbCG,T)
+savageCG
+
+# Criterio Laplace
+
+laplaceCG=criterio.Laplace(tbCG,T)
+laplaceCG
+
+# Criterio Punto Ideal
+
+pidealCG= criterio.PuntoIdeal(tbCG,T)
+pidealCG
+```
+
+```{r}
+# Todos los criterios
+
+resCG= criterio.Todos(tbCG, alfa=0.7, favorable = T)
+resCG
+
+```
+
+La mayoría de criterios coinciden con que Lidia debería irse a Canadá y trabajar en "Constellation Software", exceptuando el criterio optimista que considera como optimó tanto el irse a Canadá como a China en "Gree Electric".
