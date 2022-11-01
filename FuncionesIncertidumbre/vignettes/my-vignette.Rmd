@@ -37,6 +37,13 @@ library(FuncionesIncertidumbre)
 
 - **crea.tablaX**
 
+*Argumentos*
+
+-*vector_matporfilas:* Vector de valores asociados a la matriz de decisión dados por filas.
+-*numalternativas:* Número de alternativas, por defecto 3.
+-*numestados:* Número de estados de la naturaleza, por defecto 4.
+-*v.nombres.alternativas:* Nombres asociados a las alternativas, por defecto NULL.
+
 ```{r}
 crea.tablaX(c(1,2,
               3,4,
@@ -46,7 +53,14 @@ crea.tablaX(c(1,2,
 
 - **criterio.Wald**
 
-Para cada alternativa se supone que va a pasar lo peor, y elige aquella alternativa que dé mayor valor. De esta forma se asegura que el peor de los casos se obtenga lo mejor posible, que corresponde a una visión pesimista de loq que puede ocurrir.
+Para cada alternativa se supone que va a pasar lo peor, y elige aquella alternativa que dé mayor valor. De esta forma se asegura que el peor de los casos se obtenga lo
+mejor posible, que corresponde a una visión pesimista de lo que que puede ocurrir.
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
+
 
 ```{r}
 tabla=crea.tablaX(c(1,2,
@@ -60,6 +74,12 @@ criterio.Wald(tabla, favorable = F)
 - **criterio.Todos**
 
 Esta función engloba todos los criterios de manera que nos dice cuál es la alternativa óptima según cada criterio y además realiza un conteo y da para cada alternativa el número de veces que es óptima entre todos los criterios. Finalmente, nos muestra la alternativa que resulta óptima (la que reune un conteo mayor).
+
+*Argumentos*
+
+-*tablaX:* Tabla de decisión con estados de la naturaleza en las columnas y alternativas por fila.
+-*alfa:* Valor entre 0 y 1 que pondera al citerio optimista, por defecto 0.3.
+-*favorable:* Si el problema está asociado a costos (desfavorable) o a beneficios (favorable), por defecto este último.
 
 ```{r}
 library(kableExtra)
