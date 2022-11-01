@@ -330,3 +330,130 @@ resAB
 
 La mayoría de criterios coinciden con que Juan debe adquirir su ordenador para sus estudios en "Media Makt", exceptuando el criterio de Wald que indica que la opción más económica sería comprarlo en "Pc Componentes".
 
+
+
+# Ejercicio 4 (Cristóbal Morales)
+
+Diego lleva varias semanas queriendo empezar una rutina de deporte y ha decidido
+apuntarse al gimnasio,sin embargo está indeciso, y ha pedido información en varios gimnasios:
+    
+Preguntó primero en el gimnasio más cercano, YO10 Sport Club, tiene una cuota 
+mensual de 42.50 euros.En caso de querer disponer de un entrenador personal tendrá 
+que pagar la tarifa plus de 55 euros al mes. El uso de taquilla sería de 5 euros 
+al mes.
+
+Luego preguntó en el segundo más cercano, el GoFit, tiene una cuota mensual de
+50 euros, y dispone de piscina y clases dirigidas. En caso de disponer de un
+entrenador personal tendrá que pagar la tarifa plus de 65 euros al mes. El uso
+de taquilla entra dentro de la tarifa.
+
+Por ultimo, preguntó en el GaliSport, su cuota mensual es de 35 euros. Dispone
+de piscina y clases dirigidas. En caso de querer disponer de un entrenador 
+personal, tendrá que pagar la tarifa plus de 52 euros al mes. El uso de taquilla
+será de 10 euros al mes.
+
+¿Cuál de las tres opciones debería elegir Diego, si quiere ahorrar la mayor 
+cantidad de dinero posible en un mes?
+
+  
+**Solución**
+    
+* Un decisor
+
+* Modelo de costos (desfavorable)
+
+* Alternativas:
+    - d1= "Entrenar en YO10 Sport Club"
+- d2= "Entrenar en GoFit"
+- d3= "Entrenar en GaliSport"
+
+* Estados de la naturaleza:
+    -e1= "Disponer de entrenador personal y taquilla"
+-e2= "Dispone de entrenador personal sin taquilla"
+-e3= "No dispone de entrenador personal pero sí de taquilla"
+-e4= "No dispone ni de entrenador personal ni de taquilla"
+
+* Matriz de decisión (costos)
+
+```{r}
+# Estado 1: 
+m11=55+5
+m12=65
+m13=52+10
+
+# Estado 2: 
+m21=60
+m22= 65
+m23= 52
+
+# Estado 3:
+m31=42.5+5
+m32=50
+m33=35+10
+
+# Estado 4:
+m41=42.5
+m42=50
+m43=35
+```
+
+```{r}
+# Creamos la tabla de decisión
+
+tbCM=crea.tablaX(c(m11,m21,m31,m41,
+                   m12,m22,m32,m42,
+                   m13,m23,m33,m43),3,4,c("YO10 Sport Club","GoFit","GaliSport"))
+
+
+# Criterio de Wald
+
+waldCM=criterio.Wald(tbCM,F)
+waldCM
+
+# Criterio Optimista
+
+optimistaCM=criterio.Optimista(tbCM,F)
+optimistaCM
+
+# Criterio Hurwicz
+
+hurwiczCM=criterio.Hurwicz(tbCM,0.5,F)
+hurwiczCM
+
+dibuja.criterio.Hurwicz(tbCM,F)
+
+# Criterio Savage
+
+savageCM=criterio.Savage(tbCM,F)
+savageCM
+
+# Criterio Laplace
+
+laplaceCM=criterio.Laplace(tbCM,F)
+laplaceCM
+
+# Criterio Punto Ideal
+pidealCM=criterio.PuntoIdeal(tbCM,F)
+pidealCM
+```
+
+```{r}
+# Todos los criterios
+
+resCM= criterio.Todos(tbCM,alfa=0.5,favorable=F)
+resCM
+```
+
+La mayoría de los criterios coinciden con que la mejor alternativa es la 3, 
+es decir, Diego debería apuntarse al gimnasio GaliSport. El criterio Wald 
+considera que la mejor opción es el gimnasio YO10 Sport Club.
+
+
+
+
+
+
+
+
+
+
