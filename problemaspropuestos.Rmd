@@ -334,26 +334,15 @@ La mayoría de criterios coinciden con que Juan debe adquirir su ordenador para 
 
 # Ejercicio 4 (Cristóbal Morales)
 
-Diego lleva varias semanas queriendo empezar una rutina de deporte y ha decidido
-apuntarse al gimnasio,sin embargo está indeciso, y ha pedido información en varios gimnasios:
+Diego lleva varias semanas queriendo empezar una rutina de deporte y ha decidido apuntarse al gimnasio,sin embargo está indeciso, y ha pedido información en varios gimnasios:
     
-Preguntó primero en el gimnasio más cercano, YO10 Sport Club, tiene una cuota 
-mensual de 42.50 euros.En caso de querer disponer de un entrenador personal tendrá 
-que pagar la tarifa plus de 55 euros al mes. El uso de taquilla sería de 5 euros 
-al mes.
+Preguntó primero en el gimnasio más cercano, YO10 Sport Club, tiene una cuota mensual de 42.50 euros.En caso de querer disponer de un entrenador personal tendrá que pagar la tarifa plus de 55 euros al mes. El uso de taquilla sería de 5 euros al mes.
 
-Luego preguntó en el segundo más cercano, el GoFit, tiene una cuota mensual de
-50 euros, y dispone de piscina y clases dirigidas. En caso de disponer de un
-entrenador personal tendrá que pagar la tarifa plus de 65 euros al mes. El uso
-de taquilla entra dentro de la tarifa.
+Luego preguntó en el segundo más cercano, el GoFit, tiene una cuota mensual de 50 euros, y dispone de piscina y clases dirigidas. En caso de disponer de un entrenador personal tendrá que pagar la tarifa plus de 65 euros al mes. El uso de taquilla entra dentro de la tarifa.
 
-Por ultimo, preguntó en el GaliSport, su cuota mensual es de 35 euros. Dispone
-de piscina y clases dirigidas. En caso de querer disponer de un entrenador 
-personal, tendrá que pagar la tarifa plus de 52 euros al mes. El uso de taquilla
-será de 10 euros al mes.
+Por último, preguntó en el GaliSport, su cuota mensual es de 35 euros. Dispone de piscina y clases dirigidas. En caso de querer disponer de un entrenador  personal, tendrá que pagar la tarifa plus de 52 euros al mes. El uso de taquilla será de 10 euros al mes.
 
-¿Cuál de las tres opciones debería elegir Diego, si quiere ahorrar la mayor 
-cantidad de dinero posible en un mes?
+¿Cuál de las tres opciones debería elegir Diego, si quiere ahorrar la mayor  cantidad de dinero posible en un mes?
 
   
 **Solución**
@@ -444,9 +433,7 @@ resCM= criterio.Todos(tbCM,alfa=0.5,favorable=F)
 resCM
 ```
 
-La mayoría de los criterios coinciden con que la mejor alternativa es la 3, 
-es decir, Diego debería apuntarse al gimnasio GaliSport. El criterio Wald 
-considera que la mejor opción es el gimnasio YO10 Sport Club.
+La mayoría de los criterios coinciden con que la mejor alternativa es la 3, es decir, Diego debería apuntarse al gimnasio GaliSport. El criterio Wald considera que la mejor opción es el gimnasio YO10 Sport Club.
 
 
 
