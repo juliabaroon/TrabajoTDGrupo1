@@ -37,15 +37,18 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
 
   - _crea.tablaX_
   - _which.max.general_
-  - _criterio.Wald_
-  - _criterio.Hurwicz_
-  - _dibuja.criterio.Hurwicz_Intervalos_
-  - _criterio.Laplace_
+  - _which.min.general_
   - _distanciaEuclidea_
-  - _criterio.Hurwicz.General_
-  - _criterio.PuntoIdeal_
   - _criterio.tablaX.ejemplos_
+  - _criterio.Wald_
+  - _criterio.Optimista_
+  - _criterio.Hurwicz_
+  - _criterio.Hurwicz.
   - _dibuja.criterio.Hurwicz_
+  - _dibuja.criterio.Hurwicz_Intervalos_
+  - _criterio.Savage_
+  - _criterio.Laplace_
+  - _criterio.PuntoIdeal_
   - _criterio.Todos_
   
 ## Problemas propuestos:
