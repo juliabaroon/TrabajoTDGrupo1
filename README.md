@@ -44,6 +44,9 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - _distanciaEuclidea_
   - _criterio.Hurwicz.General_
   - _criterio.PuntoIdeal_
+  - _criterio.tablaX.ejemplos_
+  - _dibuja.criterio.Hurwicz_
+  - _criterio.Todos_
   
 ## Problemas propuestos:
  
