@@ -435,12 +435,103 @@ resCM
 
 La mayoría de los criterios coinciden con que la mejor alternativa es la 3, es decir, Diego debería apuntarse al gimnasio GaliSport. El criterio Wald considera que la mejor opción es el gimnasio YO10 Sport Club.
 
+# Ejercicio 5 (Ana Gómez)
+
+Lucas es el dueño de una discoteca de Sevilla. Se encuentra con el problema de que no sabe a que DJ contratar para la fiesta del próximo sábado. 
+
+Suponiendo que la media ed consumiciones por persona es de 3, y el precio original de estas es de 6€.
+
+Sabe que el primer DJ es Duki suele poner más música tecno lo que atrae a menos gente pero este DJ es más famoso por lo tanto puede cobrar entrada al local por precio más alto que sería 20€.Si entran menos de 100 personas las consumiciones serán 10% más baratas de su precio original.
+
+El segundo DJ posible sería Albama ICE un DJ famoso y que suele poner música de todos los géneros así que eso puede hacer que que vaya más gente al local, en este caso la entrada no debería de superar los 15€.Si entran más de 100 y menos de 150 personas las consumiciones costarán su precio original.
+
+Por último, tiene la opción de contratar a un DJ llamado Bonlon que aún no ha salido a la fama por tanto el local tampoco tendería a llenarse mucho y la entrada se debe de cobrar a 10€ por persona.Si entran más de 150 personas en el local las consumiciones seran un 10% más caras.
+
+
+Decidir cuál es la mejor alternativa según todos los criterios si lo que quiere Lucas es ganar el máximo dinero posible.
+
+
+**Solución**
+
+* Un decisor
+
+* Modelo de costos (favorable)
+
+* Alternativas:
+  - d1= “DJ Duki”
+  - d2= “DJ Albama ICE”
+  - d3= ”DJ Bolon”
+  
+* Estados de la naturaleza:
+  - e1= “Entran menos de 100 personas”
+  - e2= “Entran entre 100 y 150 personas”
+  - e3= “Entran más de 150 personas”
+  
+* Matriz de decisión (costos)
 
 
 
+```{r}
+#Estado 1
+(md11=20+(6*3*0.9))
+(md12=15+(6*3))
+(md13=10+(6*3))
+#Estado 2
+(md21=20+(6*3))
+(md22=15+(6*3*1))
+(md23=10+(6*3))
+#Estado 3
+(md31=20+(6*3))
+(md32=15+(6*3))
+(md33=10+(6*3*1.1))
+```
 
 
+```{r}
+# Creamos la tabla de decisión
+
+tbAG=crea.tablaX(c(md11,md12,md13,
+                   md21,md22,md23,
+                   md31,md32,md33),3,3, c("DJ Duki", "DJ AlbamaICE",
+                                          "DJ Bolon"))
+
+#Criterio Wald
+
+waldAG=criterio.Wald(tbAG,T)
+waldAG
+
+# Criterio Optimista
+
+optimistaAG=criterio.Optimista(tbAG,T)
+optimistaAG
+
+# Criterio Hurwicz
+
+hurwiczAG=criterio.Hurwicz(tbAG, 0.5, T)
+hurwiczAG
+dibuja.criterio.Hurwicz(tbAG,T)
+
+# Criterio Savage
+
+savageAG=criterio.Savage(tbAG,T)
+savageAG
+
+# Criterio Laplace
+
+laplaceAG=criterio.Laplace(tbAG,T)
+laplaceAG
+
+# Criterio Punto Ideal
+
+pidealAG= criterio.PuntoIdeal(tbAG,T)
+pidealAG
+```
 
 
+```{r}
+# Todos los criterios
 
+resAG= criterio.Todos(tbAG, alfa=0.5, favorable = T)
+resAG
+```
 
