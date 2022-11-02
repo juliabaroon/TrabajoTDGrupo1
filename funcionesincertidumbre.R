@@ -55,7 +55,7 @@ distanciaEuclidea = function(pto1,pto2) {
 # quedandonos la distancia entre ambos.
 
 
-criterio.tablaX.ejemplos = function(cual=1) {#definimos tres funciones dependiendo del valor de dicha función
+criterio.tablaX.ejemplos = function(cual=1) { #definimos tres funciones dependiendo del valor de dicha función
     # es decir, a continuación definimos tres casos:
     if (cual==2) { ## cual == 2  ## desfav.
         X = crea.tablaX(c(2,12,-3,5,5,-1,0,10,-2),numalternativas = 3,numestados = 3) #definimos un vector x cuando la función cual=2
@@ -65,8 +65,8 @@ criterio.tablaX.ejemplos = function(cual=1) {#definimos tres funciones dependien
         X = crea.tablaX(c(5,4,6,2,3,1,-1,8,7,5,2,0),numalternativas = 4,numestados = 3) #definimos un vector x cuando la función cual=1
     }
     return(X);#nos devuelve la matriz en forma de tabla
-# esta dunción sirve para probar la función crea.tablaX
-}
+
+} # esta función sirve para probar la función crea.tablaX
 
 ## Funciones Métodos de Decisión bajo Incertidumbre ----
 
