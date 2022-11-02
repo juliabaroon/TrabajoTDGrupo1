@@ -43,7 +43,7 @@ Se han repartido las 15 funciones pertenecientes al script *"funcionesincertidum
   - _criterio.Wald_
   - _criterio.Optimista_
   - _criterio.Hurwicz_
-  - _criterio.Hurwicz.
+  - _criterio.Hurwicz.General_
   - _dibuja.criterio.Hurwicz_
   - _dibuja.criterio.Hurwicz_Intervalos_
   - _criterio.Savage_
