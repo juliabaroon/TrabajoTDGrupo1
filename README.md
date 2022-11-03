@@ -36,6 +36,8 @@ y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empate
  Se ha comprobado que los cambios estéticos de la función _criterio.Todos_ se ven correctamente en todos los casos.
 
  Se ha comprobado que tanto como si se dan o no nombres a las alternativas la función _crea.tablaX_ trabaja correctamente.
+ 
+ Se ha comprobado en los distintos casos posibles: (que el punto de corte esté en los extremos del intervalo (0,1), que esté dentro o que sea más de uno) que la función _dibuja.criterio.Hurwicz_Intervalos_ funciona adecuadamente.
   
 ## Comentar funciones:
  
