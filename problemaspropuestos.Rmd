@@ -196,6 +196,8 @@ dibuja.criterio.Hurwicz(tbCG,T)
 #Mientras que marcharse a Canadá es una recta constante dado que los beneficios no dependen del estado (aprender o no Python)
 #Canadá y China coinciden exclusivamente en el caso de que alfa sea=1 es decir, se pondere al máximo el criterio optimista.
 
+dibuja.criterio.Hurwicz_Intervalos(tbCG,T,T) #No existe ningún punto de corte, la alternativa óptima es siempre Canadá
+
 # Criterio Savage
 
 savageCG=criterio.Savage(tbCG,T)
