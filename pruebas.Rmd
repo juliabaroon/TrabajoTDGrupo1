@@ -98,10 +98,34 @@ tabla2=crea.tablaX(c(0,1,0,
 
 criterio.Hurwicz(tabla2,alfa=0.4,T)
 
-#dibuja.criterio.Hurwicz_Intervalos(tabla2,T,T) #ERROR
+dibuja.criterio.Hurwicz_Intervalos(tabla2,T,T) #Ya no da error y calcula perfectamente el punto de corte (en este caso el eje x= cuando alfa=0)
 
 dibuja.criterio.Hurwicz(tabla2,T)
 
+```
+## **Ejemplo Ejercicio 4**
+
+```{r}
+tb04=crea.tablaX(c(2160,360,
+                   720,720,
+                   3480,480),3,2)
+
+criterio.Hurwicz(tb04,alfa=0.4,T)
+
+dibuja.criterio.Hurwicz_Intervalos(tb04,T,T) #Lo calcula correctamente el punto de corte está en el intervalo (0,1)
+```
+## **Ejemplo Ejercicio 1 b)**
+
+Prueba corrección ante casos de empate.
+
+```{r}
+tb01b= crea.tablaX(c(2,12,-3
+                     ,5,5,-1,
+                     0,10,-2), 3, 3)
+
+criterio.Hurwicz(tb01b,alfa=0.4,T)
+
+dibuja.criterio.Hurwicz_Intervalos(tb01b,T,T) #Lo calcula correctamente cuando hay mas de un punto de corte
 ```
 
 ## Nueva estética función *"Criterio.Todos"*
