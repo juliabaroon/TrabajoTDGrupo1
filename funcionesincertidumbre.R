@@ -276,7 +276,8 @@ dibuja.criterio.Hurwicz = function(tablaX,favorable=TRUE) {
     y1 = max(Altmax); # máximo del vector de los máximo
     rg = y1-y0; #creamos un vector de la diferencia entre el max y min
     y0=y0-0.1*rg;y1=y1+0.1*rg;
-    plot(c(x0,x1), c(y0,y1), type = "n", xlab = "alpha", ylab = "Criterio Hurwicz");
+    plot(c(x0,x1), c(y0,y1), type = "n", xlab = "alpha", ylab = "Criterio Hurwicz"); #construye plot conf todas esas rectas de colores
+    # si es favorable se queda con la poligonal del supremo y si es desfavorable, se queda con la del ínfimo
     nn = length(Altmin); #tamaño del vector de los mínimos
     colores = rainbow(nn);
     abline(v=0); #línea vertical en X=0
