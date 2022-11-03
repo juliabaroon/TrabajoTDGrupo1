@@ -63,6 +63,14 @@ fichero _funcionesncertidumbre.R_.
 
 Además se ha añadido una vignette asocidada a dicho paquete llamada _"my-vignette"_ en la cual redactaremos todo lo que el paquete es capaz de hacer y ejemplos de aplicación para que cualquier persona que lo consulte pueda ver como funciona fácilmente.
 
+### Vignette:
+
+Los paquetes de R están obligados a incluir documentación sobre sus funciones y conjuntos de datos. Sin embargo, a veces es difícil entender la utilidad de un paquete viendo la documentación de sus funciones de forma aislada. Es por ello que algunos paquetes incluyen vignettes, que son documentos que explican en detalle la funcionalidad de un paquete combinando sus distintas funciones para, por ejemplo, resolver un problema. 
+
+Nuestra vignette incluye una breve introducción sobre la decisión bajo incertidumbre y el uso de los criterios que nos permiten resolver problemas relacionados con 
+dicho tema. Además, ilustra para cada función asociada al paquete ejemplos junto con los argumentos de la propia función y sus valores por defecto para facilitar su
+uso.
+
 ## Wiki:
 
 Cada repositorio en GitHub.com viene equipado con una sección para alojar documentación, llamada _Wiki_. Puedes usar la wiki de tu repositorio para decir cómo has 
@@ -80,10 +88,4 @@ La Wiki incluye:
 Un archivo _README_ dice rápidamente lo que tu proyecto puede hacer (en nuestro caso que cambios o añadidos hemos hecho), mientras que puedes utilizar la _Wiki_ para 
 proporcionar documentación adicional (como información más específica asociada a nuestro grupo).
 
-## Vignette:
 
-Los paquetes de R están obligados a incluir documentación sobre sus funciones y conjuntos de datos. Sin embargo, a veces es difícil entender la utilidad de un paquete viendo la documentación de sus funciones de forma aislada. Es por ello que algunos paquetes incluyen vignettes, que son documentos que explican en detalle la funcionalidad de un paquete combinando sus distintas funciones para, por ejemplo, resolver un problema. 
-
-Nuestra vignette incluye una breve introducción sobre la decisión bajo incertidumbre y el uso de los criterios que nos permiten resolver problemas relacionados con 
-dicho tema. Además, ilustra para cada función asociada al paquete ejemplos junto con los argumentos de la propia función y sus valores por defecto para facilitar su
-uso.
