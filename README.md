@@ -18,6 +18,14 @@ y de rojo aquellas que no, funcionando tanto en casos ordinarios como con empate
   
  Se ha dado la posibilidad de proporcionar los nombres de las alternativas en la función de manera que las filas de la tabla tengan un nombre asociado.
  
+ * *dibuja.criterio.Hurwicz_Intervalos*
+ 
+ La función devolvía el siguiente error al aplicarla en ciertos problemas:
+ Error in uniroot(pCorte, interval = c(0, 1)) : f.lower = f(lower) is NA
+ 
+ Se ha modificado el código para poder aplicar correctamente la función en
+ aquellos casos en los que la alternativa óptima era solo una, de forma que ya
+ no proporciona el error mencionado.
  
  ## Probar funciones y modificaciones:
  
