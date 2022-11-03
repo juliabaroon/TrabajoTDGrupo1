@@ -81,7 +81,7 @@ Nuestra vignette incluye una breve introducción sobre la decisión bajo incerti
 dicho tema. Además, ilustra para cada función asociada al paquete ejemplos junto con los argumentos de la propia función y sus valores por defecto para facilitar su
 uso.
 
-Se puede acceder a ella de dos formas; en la primera basta compilar el documento _"Rmarkdown"_ (con knit) y aparece directamente en el _Viewer_. La segunda es a través del _Help_. Se ha creado un documento llamado _"FuncionesIncertidumbre_0.1.0.tar"_, el cual se debe instalar como un paquete. Una vez instalado nos aparecerá en la sección _Packages_, pulsamos sobre él y se abrirá en la pestaña _Help_ la guía de nuestro paquete. Ya solo faltaría acceder al enlace _User guides, package vignettes and other documentation_ y la viñeta aparecerá.
+Se puede acceder a ella de dos formas; en la primera basta compilar el documento _"Rmarkdown"_ llamado _"my-vignette"_ (con knit) y aparece directamente en el _Viewer_. La segunda es a través del _Help_. Se ha creado un documento llamado _"FuncionesIncertidumbre_0.1.0.tar"_, el cual se debe instalar como un paquete. Una vez instalado nos aparecerá en la sección _Packages_, pulsamos sobre él y se abrirá en la pestaña _Help_ la guía de nuestro paquete. Ya solo faltaría acceder al enlace _User guides, package vignettes and other documentation_ y la viñeta aparecerá.
 
 ![help](https://user-images.githubusercontent.com/113537202/199810698-238b55e4-f693-4712-a638-e11a4f65db9e.png)
 ![help2](https://user-images.githubusercontent.com/113537202/199810731-35f5051b-2b14-4444-8863-ea9db2bc88eb.png)
