@@ -349,16 +349,31 @@ dibuja.criterio.Hurwicz_Intervalos = function(tablaX,favorable=TRUE,mostrarGrafi
     #               alfa * (a1Max- a2Max - a1Min + a2Min) + a1Min -a2Min = 0
     #
     # Buscamos ahora los valores de alfa para los que se cortan las rectas asociadas a cada decision
-    for (i in 1:(length(Alt)-1)){
+
+    for (i in if(length(Alt)==1){1:length(Alt)}else{1:(length(Alt)-1)})
+    {#debemos de tener en cuenta que hay casos en los que solo una alternativa es óptima, luego, lengh(alt)-1 sería = 0
+
         imax = as.numeric(Altmax[Alt[i]])      # maximo asociado a la decision i del vector Alt
-        imax1 = as.numeric(Altmax[Alt[i+1]])   # maximo asociado a la decision i+1 del vector Alt
         imin = as.numeric(Altmin[Alt[i]])      # minimo asociado a la decision i del vector Alt
+
+        imax1 = as.numeric(Altmax[Alt[i+1]])   # maximo asociado a la decision i+1 del vector Alt
         imin1 = as.numeric(Altmin[Alt[i+1]])   # minimo asociado a la decision i+1 del vector Alt
+
+        #en los casos en los que solo una alternativa es óptima (lengh(alt)-1 = 0)
+        #los imax e imin resultan NA dado que no hay un i+1, en esos casos los valores coinciden con los de imax e imin
+        if(is.na(imax1)){
+            imax1=imax
+        }
+        if(is.na(imin1)){
+            imin1=imin
+        }
+
         if (favorable){
             pCorte = function(alfa) {alfa * (imax-imax1-imin+imin1)+imin-imin1}
             alfaC = uniroot(pCorte, interval = c(0,1))$root[[1]] # Buscamos los 0 para cada funcion
             alfaCorte[i] = alfaC  # Almacenamos los valores de alfa para los que las rectas se cortan en alfaCorte
-        } else {
+
+        } else  {
             # Para el caso de costes (alternativas a1 y a2):
             #
             #               a1Max *(1-alfa) +alfa*a1Min = a2Max *(1-alfa) +alfa*a2Min
