@@ -304,7 +304,7 @@ hurwiczAB=criterio.Hurwicz(tbAB, 0.5, F)
 hurwiczAB
 
 dibuja.criterio.Hurwicz(tbAB,F)
-#Observamos con bastante claridad como comprar en APP-Informática y Wallapop nunca se tendrán como posibilidades si lo que queremos es gastar lo menos posible
+#Observamos con bastante claridad como comprar en APP-Informática y Wallapop nunca se tendrán como posibilidades si lo que queremos es gastar lo menos posible, ya que sus rectas se encuentran por encima del resto en todo momento.
 #En cambio, vemos como la recta de Media Markt al final acaba siendo la más óptima ya #que es la que minimiza nuestros costes.
 
 # Criterio Savage
